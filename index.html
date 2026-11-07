@@ -21,7 +21,7 @@
   "@type": "BarberShop",
   "name": "Barbearia Felipe Pioli",
   "telephone": "+55-16-99610-2587",
-  "image": "img/salao.webp",
+  "image": "img/espera.webp",
   "foundingDate": "2013",
   "address": { "@type": "PostalAddress", "streetAddress": "Av. Fagundes, 1078 - Jardim Anhanguera", "addressLocality": "Cravinhos", "addressRegion": "SP", "postalCode": "14140-000", "addressCountry": "BR" },
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "134" },
@@ -36,9 +36,9 @@
   /* ============================================================
      BARBEARIA FELIPE PIOLI - barbearia de rock desde 2013.
      Preto e o vermelho do letreiro; o SELO redondo da casa;
-     a PAREDE DE TABUA BRANCA do salao (linhas finas na horizontal)
-     no fundo das faixas claras e o DISCO DE VINIL da parede
-     como o desenho de "horario reservado".
+     as linhas finas da parede branca no fundo das faixas claras
+     e o DISCO DE VINIL como o desenho de "horario reservado".
+     Fotos: quadros do video do salao e fotos do Google, em pe (4:5).
      ============================================================ */
   :root {
     color-scheme: only light;
@@ -66,7 +66,7 @@
     --margem: clamp(16px, 4vw, 40px);
   }
   @font-face { font-family: "Work Sans reserva"; src: local("Arial"); size-adjust: 104%; }
-  @font-face { font-family: "Bricolage reserva"; src: local("Arial Bold"); size-adjust: 96%; }
+  @font-face { font-family: "Bricolage reserva"; src: local("Arial Bold"); size-adjust: 78%; }
 
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
@@ -136,27 +136,23 @@
   @media (max-width: 300px) { .marca span { display: none; } }
   @media (prefers-reduced-motion: reduce) { .menu-botao span, .menu { transition: none !important; } }
 
-  /* ---------- abertura: preto, a foto do salao e o selo sobre o disco ---------- */
+  /* ---------- abertura: preto e a foto da recepcao em pe ---------- */
   .abertura { position: relative; background: var(--carvao); color: var(--branco); padding-block: clamp(2rem, 5vw, 4.5rem) 0; overflow: hidden; }
-  .abertura-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .abertura-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 29rem); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
   .abertura h1 { font-size: clamp(2.6rem, 1.4rem + 5vw, 5.4rem); font-variation-settings: "wdth" 76; }
   .abertura h1 em { font-style: normal; color: #FF4A51; }
   .abertura-texto { display: grid; gap: 1.4rem; }
   .abertura-texto > p { max-width: 32rem; color: var(--cinza-claro); font-size: 1.15rem; }
   .abertura-botoes { display: flex; flex-wrap: wrap; gap: .7rem; }
   .abertura-foto { position: relative; margin: 0; }
-  .abertura-foto img { width: 100%; aspect-ratio: 1080 / 560; object-fit: cover; border-radius: var(--raio); }
-  /* o disco de vinil atras do selo, como os da parede */
-  .disco { position: absolute; left: -2.2rem; bottom: -2.4rem; width: clamp(120px, 15vw, 170px); aspect-ratio: 1; border-radius: 50%; background:
-      radial-gradient(circle, var(--carvao) 0 4%, var(--vermelho) 4.5% 30%, transparent 30.5%),
-      repeating-radial-gradient(circle, #0B0B0B 0 2px, #1C1C1C 2px 4px); box-shadow: 0 0 0 6px var(--carvao); }
-  .disco img { position: absolute; inset: 20%; width: 60%; filter: none; }
+  .abertura-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--raio); }
+  .legenda { position: absolute; left: .8rem; bottom: .8rem; max-width: calc(100% - 1.6rem); padding: .35rem .75rem; border-radius: 8px; background: rgba(18, 18, 18, .8); color: var(--branco); font-size: .85rem; line-height: 1.3; }
   .fatos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 1.4rem 0 1.6rem; border-top: 1px solid var(--carvao-3); list-style: none; }
   .fatos li { display: grid; gap: .1rem; color: var(--cinza-claro); font-size: .92rem; line-height: 1.35; }
   .fatos strong { color: var(--branco); font: 700 1.15rem/1.2 var(--fonte-titulo); font-variation-settings: "wdth" 85; }
   @media (max-width: 900px) {
     .abertura-grade { grid-template-columns: minmax(0, 1fr); }
-    .abertura-foto { margin-left: 1.6rem; }
+    .abertura-foto img { aspect-ratio: 4 / 3; object-position: 50% 55%; }
     .fatos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
@@ -168,7 +164,7 @@
 
   /* ---------- protese: antes e depois que se arrasta ---------- */
   .protese-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
-  .compara { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: var(--raio); background: var(--carvao); user-select: none; touch-action: pan-y; }
+  .compara { position: relative; max-width: 36rem; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--raio); background: var(--carvao); user-select: none; touch-action: pan-y; }
   .compara img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); }
   .compara .depois { clip-path: inset(0 0 0 var(--pos, 50%)); }
   .compara-linha { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: var(--branco); pointer-events: none; }
@@ -187,14 +183,17 @@
   .protese-texto { display: grid; gap: 1.5rem; }
   .protese-texto > p { color: var(--tinta-2); font-size: 1.12rem; }
   .etapas { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--linha); }
-  .etapas li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .3rem 1.2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linha); }
-  .etapas h3 { font-size: 1.2rem; }
-  .etapas p { color: var(--tinta-2); }
+  .etapas div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .3rem 1.2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linha); }
+  .etapas dt { font: 800 1.2rem/1.15 var(--fonte-titulo); font-variation-settings: "wdth" 82; letter-spacing: -.01em; }
+  .etapas dd { margin: 0; color: var(--tinta-2); }
   @media (max-width: 900px) { .protese-grade { grid-template-columns: minmax(0, 1fr); } }
-  @media (max-width: 520px) { .etapas li { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) { .etapas div { grid-template-columns: minmax(0, 1fr); } }
 
   /* ---------- servicos ---------- */
-  .servicos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .servicos-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.6fr); gap: 1rem; align-items: stretch; }
+  .servicos-foto { position: relative; margin: 0; }
+  .servicos-foto img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--raio); }
+  .servicos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
   .servico { display: grid; align-content: start; gap: .5rem; padding: 1.5rem; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
   .servico svg { width: 36px; height: 36px; margin-bottom: .4rem; fill: none; stroke: var(--vermelho); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
   .servico p { color: var(--tinta-2); }
@@ -202,7 +201,7 @@
   .servico-destaque { background: var(--carvao); color: var(--branco); box-shadow: none; }
   .servico-destaque p { color: var(--cinza-claro); }
   .servico-destaque a { color: #FF8A8F; }
-  @media (max-width: 900px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .servicos-grade { grid-template-columns: minmax(0, 1fr); } .servicos-foto img { aspect-ratio: 4 / 3; object-position: 50% 40%; } }
   @media (max-width: 560px) { .servicos { grid-template-columns: minmax(0, 1fr); } }
 
   /* ---------- agenda ---------- */
@@ -262,15 +261,14 @@
   @media (max-width: 960px) { .agenda-grade { grid-template-columns: minmax(0, 1fr); } .resumo { position: static; } }
 
   /* ---------- o salao e as avaliacoes ---------- */
-  .salao-grade { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1rem; align-items: stretch; }
-  .salao-grade figure { margin: 0; }
-  .salao-grade img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--raio); }
+  .salao-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 1.05fr); gap: 1rem; align-items: stretch; }
+  .salao-grade figure { position: relative; margin: 0; }
+  .salao-grade figure img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--raio); }
   .salao-texto { display: grid; align-content: center; gap: 1rem; padding: clamp(1.4rem, 3vw, 2.2rem); border-radius: var(--raio); background: var(--carvao); color: var(--branco); }
   .salao-texto p { color: var(--cinza-claro); }
   .salao-texto img { width: 84px; height: 84px; border-radius: 0; }
-  .salao-fotos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .55fr); gap: 1rem; }
-  @media (max-width: 900px) { .salao-grade { grid-template-columns: minmax(0, 1fr); } }
-  @media (max-width: 520px) { .salao-fotos { grid-template-columns: minmax(0, 1fr); } .salao-fotos figure:last-child { display: none; } }
+  @media (max-width: 900px) { .salao-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); } .salao-texto { grid-column: 1 / -1; } }
+  @media (max-width: 420px) { .salao-grade .legenda { display: none; } }
   .google { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 1.5rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
   .google-nota { display: grid; align-content: start; gap: .5rem; }
   .google-marca { display: flex; align-items: center; gap: .5rem; color: var(--tinta-2); font-weight: 600; }
@@ -286,20 +284,24 @@
   .dep-autor span { color: var(--tinta-2); font-size: .85rem; }
   .dep-avatar { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--av); color: var(--branco); font-weight: 600; }
   .dep-autor .g-logo { margin-left: auto; width: 20px; height: 20px; }
-  blockquote { margin: 0; }
+  blockquote { margin: 0; overflow-wrap: anywhere; }
+  .depoimentos li, .google > * { min-width: 0; }
   @media (max-width: 960px) { .google { grid-template-columns: minmax(0, 1fr); } }
 
   /* ---------- como chegar ---------- */
-  .chegar { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); overflow: hidden; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
+  .chegar { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(0, 1fr); overflow: hidden; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
   .chegar iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
+  .chegar-foto { position: relative; margin: 0; }
+  .chegar-foto img { width: 100%; height: 100%; object-fit: cover; }
   .chegar-dados { display: grid; align-content: start; gap: 1.2rem; padding: clamp(1.3rem, 3vw, 2rem); }
   .chegar-dados h3 { margin-bottom: .2rem; color: var(--tinta-2); font: 600 .9rem/1.2 var(--fonte); }
-  .chegar-dados a:not(.btn) { font-weight: 600; text-underline-offset: 3px; }
+  .chegar-dados a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-underline-offset: 3px; overflow-wrap: anywhere; }
   .horarios { display: grid; gap: .15rem; margin: 0; font-variant-numeric: tabular-nums; }
   .horarios div { display: flex; justify-content: space-between; gap: 1rem; }
   .horarios dt { font-weight: 500; }
   .horarios dd { margin: 0; color: var(--tinta-2); text-align: right; }
-  @media (max-width: 860px) { .chegar { grid-template-columns: minmax(0, 1fr); } .chegar iframe { min-height: 300px; } }
+  @media (max-width: 1080px) { .chegar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .chegar-foto { grid-row: span 2; } .chegar iframe { min-height: 300px; } }
+  @media (max-width: 680px) { .chegar { grid-template-columns: minmax(0, 1fr); } .chegar-foto { grid-row: auto; } .chegar-foto img { aspect-ratio: 4 / 3; object-position: 50% 30%; } }
 
   /* ---------- rodape e botao do WhatsApp ---------- */
   .rodape { padding-block: 2.5rem; background: var(--carvao); color: var(--cinza-claro); }
@@ -366,8 +368,8 @@
           </div>
         </div>
         <figure class="abertura-foto">
-          <img src="img/salao.webp" width="1080" height="560" alt="O salão da Barbearia Felipe Pioli, com guitarras, discos e quadros de bandas nas paredes" fetchpriority="high">
-          <span class="disco" aria-hidden="true"><img src="img/selo-branco.webp" width="320" height="320" alt=""></span>
+          <img src="img/espera.webp" width="716" height="895" alt="A recepção da barbearia, com poltronas pretas e a parede cheia de guitarras, discos e quadros de bandas de rock" fetchpriority="high">
+          <figcaption class="legenda">A recepção, na Av. Fagundes, 1078</figcaption>
         </figure>
       </div>
       <ul class="fatos">
@@ -383,8 +385,8 @@
     <div class="envoltorio protese-grade">
       <div>
         <div class="compara" id="compara" style="--pos:50%">
-          <img class="antes" id="foto-antes" src="img/protese-1-antes.webp" width="720" height="720" alt="Antes: cliente com pouco cabelo no topo da cabeça" loading="lazy">
-          <img class="depois" id="foto-depois" src="img/protese-1-depois.webp" width="720" height="720" alt="Depois: o mesmo cliente com a prótese capilar aplicada e cortada" loading="lazy">
+          <img class="antes" id="foto-antes" src="img/protese-1-antes.webp" width="600" height="400" alt="Antes: cliente com o cabelo ralo na frente e no topo da cabeça" loading="lazy">
+          <img class="depois" id="foto-depois" src="img/protese-1-depois.webp" width="600" height="400" alt="Depois: o mesmo cliente com a prótese capilar aplicada e penteada" loading="lazy">
           <span class="rotulo rotulo-antes" aria-hidden="true">Antes</span>
           <span class="rotulo rotulo-depois" aria-hidden="true">Depois</span>
           <span class="compara-linha" aria-hidden="true"><span class="compara-alca"><svg viewBox="0 0 24 24"><path d="M9 6 3 12l6 6M15 6l6 6-6 6"/></svg></span></span>
@@ -392,19 +394,19 @@
           <input type="range" id="compara-range" min="0" max="100" value="50">
         </div>
         <div class="clientes" role="group" aria-label="Escolha o cliente">
-          <button class="cliente" type="button" data-par="1" aria-pressed="true"><img src="img/protese-1-depois.webp" width="720" height="720" alt="" loading="lazy">Cliente 1</button>
-          <button class="cliente" type="button" data-par="2" aria-pressed="false"><img src="img/protese-2-depois.webp" width="720" height="720" alt="" loading="lazy">Cliente 2</button>
-          <button class="cliente" type="button" data-par="3" aria-pressed="false"><img src="img/protese-3-depois.webp" width="720" height="477" alt="" loading="lazy">Cliente 3</button>
+          <button class="cliente" type="button" data-par="1" aria-pressed="true"><img src="img/protese-1-depois.webp" width="600" height="400" alt="" loading="lazy">Cliente 1</button>
+          <button class="cliente" type="button" data-par="2" aria-pressed="false"><img src="img/protese-2-depois.webp" width="600" height="400" alt="" loading="lazy">Cliente 2</button>
         </div>
       </div>
       <div class="protese-texto">
         <h2 id="titulo-protese">Prótese capilar com resultado imediato</h2>
-        <p>A prótese capilar é uma base fina com fios, fixada sobre a área com pouco cabelo e cortada junto com o seu cabelo. Não há cirurgia: você sai da cadeira com o resultado pronto. Arraste a linha da foto para comparar o antes e o depois de clientes nossos.</p>
-        <ol class="etapas">
-          <li><h3>Avaliação</h3><p>Conversamos sobre o resultado que você quer e avaliamos a área, o volume e a cor do seu cabelo.</p></li>
-          <li><h3>Aplicação</h3><p>A prótese é fixada e cortada no estilo escolhido, no mesmo atendimento.</p></li>
-          <li><h3>Manutenção e coloração</h3><p>Nos retornos fazemos a limpeza, a nova fixação e a coloração, para a prótese seguir com cara de cabelo.</p></li>
-        </ol>
+        <p>Arraste a linha da foto para comparar o antes e o depois de clientes nossos.</p>
+        <dl class="etapas">
+          <div><dt>O que é</dt><dd>Uma micropele com fios de cabelo naturais, fixada ao couro cabeludo para cobrir as áreas com calvície. O resultado é imediato.</dd></div>
+          <div><dt>Manutenção</dt><dd>A cada 20 dias, em média, fazemos a higienização do couro cabeludo e da prótese e a troca da fita ou da cola.</dd></div>
+          <div><dt>Duração</dt><dd>De 8 meses a 1 ano, em média. Há clientes que ficam com a mesma prótese por até 2 anos.</dd></div>
+          <div><dt>Valores</dt><dd>Variam de acordo com o modelo de base e a densidade dos fios. Agende uma avaliação e faça o seu orçamento.</dd></div>
+        </dl>
         <div><a class="btn" href="#agendar" data-servico="avaliacao"><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agendar avaliação</a></div>
       </div>
     </div>
@@ -416,6 +418,11 @@
         <h2 id="titulo-servicos">Serviços</h2>
         <p>Do corte de sempre à prótese capilar, com hora marcada.</p>
       </div>
+      <div class="servicos-grade">
+      <figure class="servicos-foto">
+        <img src="img/coloracao.webp" width="720" height="900" alt="Barbeiro aplicando a coloração na prótese capilar de um cliente, com pincel" loading="lazy">
+        <figcaption class="legenda">Coloração da prótese capilar</figcaption>
+      </figure>
       <ul class="servicos">
         <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="23" r="4"/><circle cx="23" cy="23" r="4"/><path d="M11.5 20 24 4M20.5 20 8 4"/></svg><h3>Corte masculino</h3><p>Cortes clássicos e modernos, na tesoura ou na máquina.</p><a href="#agendar" data-servico="corte">Agendar corte</a></li>
         <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v6c0 8-4 15-9 17-5-2-9-9-9-17Z"/><path d="M12 13c1.3 1 2.6 1.5 4 1.5s2.7-.5 4-1.5"/></svg><h3>Barba</h3><p>Barba desenhada e acabada na navalha.</p><a href="#agendar" data-servico="barba">Agendar barba</a></li>
@@ -424,6 +431,7 @@
         <li class="servico servico-destaque"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 18c0-7 4-12 10-12s10 5 10 12"/><path d="M6 18c3-1 5-4 6-7 2 3 6 5 14 7"/><path d="M8 18v4a8 8 0 0 0 16 0v-4"/></svg><h3>Prótese capilar</h3><p>Avaliação, aplicação e corte, com resultado imediato.</p><a href="#agendar" data-servico="avaliacao">Agendar avaliação</a></li>
         <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 4h6v8l-3 4-3-4Z"/><path d="M12 16v12M20 9a6 6 0 0 1 6 6c0 4-6 11-6 11s-6-7-6-11a6 6 0 0 1 6-6Z"/></svg><h3>Manutenção e coloração da prótese</h3><p>Limpeza, nova fixação e coloração da sua prótese.</p><a href="#agendar" data-servico="manutencao">Agendar manutenção</a></li>
       </ul>
+      </div>
     </div>
   </section>
 
@@ -463,14 +471,12 @@
   <section class="secao tabua" id="salao" aria-labelledby="titulo-salao">
     <div class="envoltorio">
       <div class="salao-grade">
-        <div class="salao-fotos">
-          <figure><img src="img/salao.webp" width="1080" height="560" alt="Barbeiro atendendo um cliente no salão" loading="lazy"></figure>
-          <figure><img src="img/parede.webp" width="640" height="1086" alt="Parede de tábua branca com guitarra, discos de vinil e quadros de rock" loading="lazy"></figure>
-        </div>
+        <figure><img src="img/mural.webp" width="716" height="895" alt="Cadeira de barbeiro diante do mural em preto e branco dos Beatles na faixa de pedestres" loading="lazy"><figcaption class="legenda">O salão</figcaption></figure>
+        <figure><img src="img/sala-protese.webp" width="716" height="895" alt="Ambiente com parede verde de plantas, sofá preto e cadeira de barbeiro" loading="lazy"><figcaption class="legenda">A parede verde</figcaption></figure>
         <div class="salao-texto">
           <img src="img/selo-branco.webp" width="320" height="320" alt="" loading="lazy">
           <h2 id="titulo-salao">Uma barbearia com trilha sonora</h2>
-          <p>Guitarras, discos de vinil e quadros das bandas nas paredes de tábua. Aqui o cuidado vai além do corte: atendimento com hora marcada e boa conversa.</p>
+          <p>Guitarras, discos e quadros de rock na recepção, o mural dos Beatles atrás da cadeira e uma parede verde de plantas. Aqui o cuidado vai além do corte: atendimento com hora marcada e boa conversa.</p>
         </div>
       </div>
       <div class="google" id="avaliacoes">
@@ -494,6 +500,7 @@
     <div class="envoltorio">
       <div class="secao-cabeca"><h2 id="titulo-chegar">Como chegar</h2></div>
       <div class="chegar">
+        <figure class="chegar-foto"><img src="img/fachada.webp" width="716" height="895" alt="A fachada preta da barbearia com a placa redonda Barbearia Felipe Pioli" loading="lazy"><figcaption class="legenda">Nossa fachada</figcaption></figure>
         <iframe title="Mapa da Barbearia Felipe Pioli em Cravinhos" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Barbearia%20Felipe%20Pioli%2C%20Av.%20Fagundes%2C%201078%2C%20Jardim%20Anhanguera%2C%20Cravinhos%20-%20SP&amp;z=16&amp;output=embed"></iframe>
         <div class="chegar-dados">
           <div><h3>Endereço</h3><p>Av. Fagundes, 1078<br>Jardim Anhanguera, Cravinhos (SP)</p></div>
@@ -531,9 +538,8 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
 const compara = $("#compara");
 $("#compara-range").addEventListener("input", (e) => compara.style.setProperty("--pos", e.target.value + "%"));
 const ALTS = [
-  ["Antes: cliente com pouco cabelo no topo da cabeça", "Depois: o mesmo cliente com a prótese capilar aplicada e cortada"],
-  ["Antes: cliente com entradas e o topo sem cabelo", "Depois: o mesmo cliente com a prótese, penteado para trás"],
-  ["Antes: cliente com o cabelo ralo na frente", "Depois: o mesmo cliente com a prótese, topete penteado"],
+  ["Antes: cliente com o cabelo ralo na frente e no topo da cabeça", "Depois: o mesmo cliente com a prótese capilar aplicada e penteada"],
+  ["Antes: cliente com calvície no alto da cabeça", "Depois: o mesmo cliente com a prótese capilar e o corte feito"],
 ];
 document.querySelectorAll(".cliente").forEach((b) => b.addEventListener("click", () => {
   const k = +b.dataset.par;
