@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#121212">
+<!-- o site e sempre claro: a extensao Dark Reader nao mexe -->
+<meta name="darkreader-lock">
+<title>Barbearia Felipe Pioli | Corte, barba e prótese capilar em Cravinhos</title>
+<meta name="description" content="Corte masculino, barba, pigmentação, sobrancelha e prótese capilar com resultado imediato. Agende pelo site. Av. Fagundes, 1078, Jardim Anhanguera, Cravinhos (SP).">
+<!-- DEMO: remover a linha abaixo quando publicar no dominio definitivo do cliente -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Work+Sans:wght@400..600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  "name": "Barbearia Felipe Pioli",
+  "telephone": "+55-16-99610-2587",
+  "image": "img/salao.webp",
+  "foundingDate": "2013",
+  "address": { "@type": "PostalAddress", "streetAddress": "Av. Fagundes, 1078 - Jardim Anhanguera", "addressLocality": "Cravinhos", "addressRegion": "SP", "postalCode": "14140-000", "addressCountry": "BR" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "134" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:30" }
+  ],
+  "sameAs": ["https://www.instagram.com/barbearia_felipepioli"]
+}
+</script>
+<style>
+  /* ============================================================
+     BARBEARIA FELIPE PIOLI - barbearia de rock desde 2013.
+     Preto e o vermelho do letreiro; o SELO redondo da casa;
+     a PAREDE DE TABUA BRANCA do salao (linhas finas na horizontal)
+     no fundo das faixas claras e o DISCO DE VINIL da parede
+     como o desenho de "horario reservado".
+     ============================================================ */
+  :root {
+    color-scheme: only light;
+    --branco: #FFFFFF;
+    --nevoa: #F2F3F5;
+    --carvao: #121212;
+    --carvao-2: #1E1E1E;
+    --carvao-3: #2A2A2A;
+    --vermelho: #D3242C;     /* 5.1:1 com texto branco */
+    --vermelho-2: #AE1C23;
+    --vermelho-claro: #FBE7E8;
+    --tinta: #161616;
+    --tinta-2: #55585E;      /* 7:1 no branco */
+    --cinza-claro: #B9BCC2;  /* texto secundario no preto */
+    --linha: #DCDEE2;
+    --linha-forte: #8A8E96;
+    --zap: #12803B;
+    --zap-2: #0E6A31;
+    --raio: 14px;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --dur-ui: .22s;
+    --fonte: "Work Sans", "Work Sans reserva", Arial, sans-serif;
+    --fonte-titulo: "Bricolage Grotesque", "Bricolage reserva", Arial, sans-serif;
+    --largura: 1280px;
+    --margem: clamp(16px, 4vw, 40px);
+  }
+  @font-face { font-family: "Work Sans reserva"; src: local("Arial"); size-adjust: 104%; }
+  @font-face { font-family: "Bricolage reserva"; src: local("Arial Bold"); size-adjust: 96%; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  html, body { overflow-x: clip; }
+  body { margin: 0; background: var(--nevoa); color: var(--tinta); font: 400 1.0625rem/1.6 var(--fonte); -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; height: auto; }
+  h1, h2, h3 { margin: 0; font-family: var(--fonte-titulo); font-weight: 800; line-height: 1.02; letter-spacing: -.02em; font-variation-settings: "wdth" 82; text-wrap: balance; }
+  h2 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.6rem); }
+  h3 { font-size: 1.3rem; line-height: 1.15; }
+  p { margin: 0; text-wrap: pretty; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+  .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pular { position: absolute; left: 1rem; top: -4rem; z-index: 50; padding: .7rem 1rem; border-radius: var(--raio); background: var(--branco); color: var(--tinta); }
+  .pular:focus { top: 1rem; }
+  .envoltorio { width: min(100% - 2 * var(--margem), var(--largura)); margin-inline: auto; }
+
+  /* botoes */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 50px; padding: .7rem 1.35rem; border: 0; border-radius: var(--raio); background: var(--vermelho); color: var(--branco); font: 600 1rem/1.2 var(--fonte); text-align: center; text-decoration: none; cursor: pointer; transition: background-color var(--dur-ui) ease, transform .16s var(--ease-out); }
+  .btn:active { transform: scale(.97); }
+  .btn svg { width: 22px; height: 22px; flex: none; }
+  .btn-linha { background: transparent; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+  .btn-zap { background: var(--zap); }
+  .btn[disabled] { background: var(--linha); color: var(--tinta-2); cursor: not-allowed; }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { background: var(--vermelho-2); }
+    .btn-linha:hover { background: rgba(127, 127, 127, .12); }
+    .btn-zap:hover { background: var(--zap-2); }
+    .btn[disabled]:hover { background: var(--linha); }
+  }
+
+  /* ---------- topo preto com o selo ---------- */
+  .topo { position: sticky; top: 0; z-index: 30; background: var(--carvao); color: var(--branco); }
+  .topo-grade { display: flex; align-items: center; gap: 1.5rem; min-height: 76px; }
+  .marca { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+  .marca img { width: 54px; height: 54px; flex: none; }
+  .marca { min-width: 0; }
+  .marca span { display: grid; min-width: 0; line-height: 1.1; overflow-wrap: anywhere; }
+  .marca strong { font: 800 1.3rem/1 var(--fonte-titulo); font-variation-settings: "wdth" 80; letter-spacing: -.01em; }
+  .marca small { color: var(--cinza-claro); font-size: .84rem; }
+  .menu { display: flex; align-items: center; gap: 0 clamp(1.4rem, 2.4vw, 2.4rem); margin-left: auto; }
+  .menu a { padding: .55rem 0; color: var(--branco); font-weight: 500; text-decoration: none; white-space: nowrap; }
+  @media (hover: hover) and (pointer: fine) { .menu a:hover { color: #FF8A8F; text-decoration: underline; } }
+  .topo .btn { min-height: 46px; flex: none; }
+  .menu-botao { display: none; }
+  @media (max-width: 66em) {
+    .menu-botao { display: grid; align-content: center; justify-items: center; gap: 5px; flex: none; width: 52px; height: 52px; margin-right: -8px; padding: 0; border: 0; border-radius: var(--raio); background: none; cursor: pointer; }
+    .menu-botao span { display: block; width: 28px; height: 4px; border-radius: 4px; background: var(--vermelho); transition: transform .25s var(--ease-out), opacity .2s; }
+    .menu-aberto .menu-botao span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-aberto .menu-botao span:nth-child(2) { opacity: 0; }
+    .menu-aberto .menu-botao span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .menu { display: grid; position: absolute; top: 100%; left: 0; right: 0; margin: 0; gap: 0; padding: .4rem var(--margem) 1.2rem; background: var(--carvao); border-top: 1px solid var(--carvao-3); opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity var(--dur-ui) var(--ease-out), transform var(--dur-ui) var(--ease-out), visibility 0s linear var(--dur-ui); }
+    .menu-aberto .menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+    .menu a { display: flex; align-items: center; min-height: 52px; padding: 0; border-bottom: 1px solid var(--carvao-3); font-size: 1.05rem; }
+    .menu a:last-child { border-bottom: 0; }
+    .topo .btn { margin-left: auto; }
+  }
+  @media (max-width: 480px) {
+    .marca small { display: none; }
+    .marca img { width: 46px; height: 46px; }
+    .marca strong { font-size: 1.15rem; }
+    .topo .btn { padding-inline: 1rem; }
+    .topo-grade { gap: .8rem; }
+  }
+  @media (max-width: 400px) { .topo-rotulo { display: none; } .topo .btn { padding-inline: .8rem; } }
+  @media (max-width: 300px) { .marca span { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .menu-botao span, .menu { transition: none !important; } }
+
+  /* ---------- abertura: preto, a foto do salao e o selo sobre o disco ---------- */
+  .abertura { position: relative; background: var(--carvao); color: var(--branco); padding-block: clamp(2rem, 5vw, 4.5rem) 0; overflow: hidden; }
+  .abertura-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .abertura h1 { font-size: clamp(2.6rem, 1.4rem + 5vw, 5.4rem); font-variation-settings: "wdth" 76; }
+  .abertura h1 em { font-style: normal; color: #FF4A51; }
+  .abertura-texto { display: grid; gap: 1.4rem; }
+  .abertura-texto > p { max-width: 32rem; color: var(--cinza-claro); font-size: 1.15rem; }
+  .abertura-botoes { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .abertura-foto { position: relative; margin: 0; }
+  .abertura-foto img { width: 100%; aspect-ratio: 1080 / 560; object-fit: cover; border-radius: var(--raio); }
+  /* o disco de vinil atras do selo, como os da parede */
+  .disco { position: absolute; left: -2.2rem; bottom: -2.4rem; width: clamp(120px, 15vw, 170px); aspect-ratio: 1; border-radius: 50%; background:
+      radial-gradient(circle, var(--carvao) 0 4%, var(--vermelho) 4.5% 30%, transparent 30.5%),
+      repeating-radial-gradient(circle, #0B0B0B 0 2px, #1C1C1C 2px 4px); box-shadow: 0 0 0 6px var(--carvao); }
+  .disco img { position: absolute; inset: 20%; width: 60%; filter: none; }
+  .fatos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 1.4rem 0 1.6rem; border-top: 1px solid var(--carvao-3); list-style: none; }
+  .fatos li { display: grid; gap: .1rem; color: var(--cinza-claro); font-size: .92rem; line-height: 1.35; }
+  .fatos strong { color: var(--branco); font: 700 1.15rem/1.2 var(--fonte-titulo); font-variation-settings: "wdth" 85; }
+  @media (max-width: 900px) {
+    .abertura-grade { grid-template-columns: minmax(0, 1fr); }
+    .abertura-foto { margin-left: 1.6rem; }
+    .fatos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- faixas claras: a parede de tabua do salao ---------- */
+  .secao { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+  .tabua { background-color: var(--branco); background-image: repeating-linear-gradient(180deg, transparent 0 55px, rgba(20, 20, 20, .055) 55px 56px); }
+  .secao-cabeca { display: grid; gap: 1rem; max-width: 46rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  .secao-cabeca p { color: var(--tinta-2); font-size: 1.12rem; }
+
+  /* ---------- protese: antes e depois que se arrasta ---------- */
+  .protese-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .compara { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: var(--raio); background: var(--carvao); user-select: none; touch-action: pan-y; }
+  .compara img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.03); }
+  .compara .depois { clip-path: inset(0 0 0 var(--pos, 50%)); }
+  .compara-linha { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; margin-left: -1.5px; background: var(--branco); pointer-events: none; }
+  .compara-alca { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: var(--vermelho); color: var(--branco); }
+  .compara-alca svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .compara input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+  .compara:has(input:focus-visible) { outline: 3px solid var(--vermelho); outline-offset: 3px; }
+  .rotulo { position: absolute; top: .8rem; padding: .3rem .7rem; border-radius: 8px; background: rgba(18, 18, 18, .78); color: var(--branco); font-size: .85rem; font-weight: 600; pointer-events: none; }
+  .rotulo-antes { left: .8rem; }
+  .rotulo-depois { right: .8rem; background: var(--vermelho); }
+  .clientes { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+  .cliente { display: flex; align-items: center; gap: .6rem; min-height: 52px; padding: .35rem .9rem .35rem .35rem; border: 0; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); color: var(--tinta); font: 500 .95rem/1.2 var(--fonte); cursor: pointer; transition: box-shadow var(--dur-ui) ease; }
+  .cliente img { width: 42px; height: 42px; border-radius: 10px; object-fit: cover; }
+  .cliente[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--vermelho); font-weight: 600; }
+  .cliente:active { transform: scale(.97); }
+  .protese-texto { display: grid; gap: 1.5rem; }
+  .protese-texto > p { color: var(--tinta-2); font-size: 1.12rem; }
+  .etapas { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--linha); }
+  .etapas li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: .3rem 1.2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--linha); }
+  .etapas h3 { font-size: 1.2rem; }
+  .etapas p { color: var(--tinta-2); }
+  @media (max-width: 900px) { .protese-grade { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) { .etapas li { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---------- servicos ---------- */
+  .servicos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .servico { display: grid; align-content: start; gap: .5rem; padding: 1.5rem; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
+  .servico svg { width: 36px; height: 36px; margin-bottom: .4rem; fill: none; stroke: var(--vermelho); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .servico p { color: var(--tinta-2); }
+  .servico a { display: inline-flex; align-items: center; justify-self: start; min-height: 44px; margin-top: .1rem; color: var(--vermelho-2); font-weight: 600; text-underline-offset: 3px; }
+  .servico-destaque { background: var(--carvao); color: var(--branco); box-shadow: none; }
+  .servico-destaque p { color: var(--cinza-claro); }
+  .servico-destaque a { color: #FF8A8F; }
+  @media (max-width: 900px) { .servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .servicos { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---------- agenda ---------- */
+  .agenda { background: var(--carvao); color: var(--branco); }
+  .agenda .secao-cabeca p { color: var(--cinza-claro); }
+  .agenda-grade { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .passo { display: grid; gap: .8rem; margin: 0 0 1.8rem; padding: 0; border: 0; min-width: 0; }
+  .passo legend { padding: 0; margin-bottom: .8rem; font: 700 1.25rem/1.2 var(--fonte-titulo); font-variation-settings: "wdth" 85; }
+  .opcoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: .55rem; }
+  .opcao { position: relative; display: grid; gap: .1rem; min-height: 56px; padding: .75rem 1rem; border-radius: 12px; background: var(--carvao-2); box-shadow: inset 0 0 0 1px var(--carvao-3); cursor: pointer; transition: background-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease; }
+  .opcao input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+  .opcao strong { font-weight: 600; }
+  .opcao small { color: var(--cinza-claro); font-size: .86rem; line-height: 1.35; }
+  @media (hover: hover) and (pointer: fine) { .opcao:hover { box-shadow: inset 0 0 0 1px #5A5A5A; } }
+  .opcao:has(input:checked) { background: var(--branco); color: var(--tinta); box-shadow: inset 0 0 0 2px var(--vermelho); }
+  .opcao:has(input:checked) small { color: var(--tinta-2); }
+  .opcao:has(input:focus-visible) { outline: 3px solid #FF8A8F; outline-offset: 2px; }
+  .dias { display: flex; gap: .5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 3px 3px 6px; margin: -3px; scrollbar-width: thin; scrollbar-color: #555 transparent; }
+  .dia { flex: 0 0 4.6rem; scroll-snap-align: start; }
+  .dia .opcao { justify-items: center; padding: .6rem .3rem; text-align: center; }
+  .dia strong { font: 800 1.5rem/1.05 var(--fonte-titulo); font-variant-numeric: tabular-nums; }
+  .dia small { text-transform: none; }
+  .horas { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.2rem, 1fr)); gap: .45rem; }
+  .hora .opcao { justify-items: center; min-height: 48px; padding: .6rem .3rem; font-variant-numeric: tabular-nums; }
+  .hora .opcao:has(input:disabled) { background: transparent; box-shadow: inset 0 0 0 1px var(--carvao-3); color: #8D9097; text-decoration: line-through; cursor: not-allowed; }
+  .hora input:disabled { cursor: not-allowed; }
+  .periodo { grid-column: 1 / -1; margin-top: .3rem; color: var(--cinza-claro); font-size: .9rem; font-weight: 600; }
+  .lotado { display: grid; gap: .8rem; justify-items: start; padding: 1.1rem 1.2rem; border-radius: 12px; background: var(--carvao-2); color: var(--cinza-claro); }
+  .lotado strong { color: var(--branco); }
+  /* o cartao do resumo: branco, fica parado ao lado no computador */
+  .resumo { position: sticky; top: 96px; display: grid; gap: 1.1rem; padding: clamp(1.2rem, 3vw, 1.8rem); border-radius: 18px; background: var(--branco); color: var(--tinta); }
+  .resumo h3 { font-size: 1.45rem; }
+  .resumo dl { display: grid; gap: 0; margin: 0; }
+  .resumo dl div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .8rem; padding: .6rem 0; border-bottom: 1px solid var(--linha); }
+  .resumo dt { color: var(--tinta-2); font-size: .92rem; }
+  .resumo dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .campo { display: grid; gap: .35rem; font-size: .92rem; font-weight: 600; }
+  .campo input { width: 100%; min-height: 50px; padding: .6rem .85rem; border: 0; border-radius: 12px; background: var(--branco); box-shadow: inset 0 0 0 1.5px var(--linha-forte); color: var(--tinta); font: 400 1rem/1.3 var(--fonte); }
+  .campo input:focus-visible { outline: 3px solid var(--vermelho); outline-offset: 1px; }
+  .sinal { display: grid; gap: .3rem; padding: .9rem 1rem; border-radius: 12px; background: var(--vermelho-claro); font-size: .95rem; }
+  .sinal strong { font: 700 1.1rem/1.2 var(--fonte-titulo); }
+  .aviso { color: var(--tinta-2); font-size: .88rem; }
+  .erro { color: var(--vermelho-2); font-size: .92rem; font-weight: 600; }
+  .erro:empty { display: none; }
+  .pix { display: grid; justify-items: center; gap: .8rem; text-align: center; }
+  .pix svg { width: 168px; height: 168px; }
+  .teste { padding: .5rem .8rem; border-radius: 10px; background: var(--nevoa); color: var(--tinta-2); font-size: .86rem; }
+  .feito { display: grid; justify-items: center; gap: .9rem; text-align: center; }
+  .feito-disco { width: 96px; height: 96px; border-radius: 50%; background:
+      radial-gradient(circle, var(--branco) 0 5%, var(--vermelho) 5.5% 32%, transparent 32.5%),
+      repeating-radial-gradient(circle, #0B0B0B 0 2px, #222 2px 4px); }
+  @media (prefers-reduced-motion: no-preference) { .feito-disco { animation: girar 1.6s var(--ease-out) both; } }
+  @keyframes girar { from { transform: rotate(-200deg) scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+  .feito ul { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; color: var(--tinta-2); font-size: .95rem; }
+  .feito .btn { width: 100%; }
+  .resumo > .btn { width: 100%; }
+  @media (max-width: 960px) { .agenda-grade { grid-template-columns: minmax(0, 1fr); } .resumo { position: static; } }
+
+  /* ---------- o salao e as avaliacoes ---------- */
+  .salao-grade { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1rem; align-items: stretch; }
+  .salao-grade figure { margin: 0; }
+  .salao-grade img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--raio); }
+  .salao-texto { display: grid; align-content: center; gap: 1rem; padding: clamp(1.4rem, 3vw, 2.2rem); border-radius: var(--raio); background: var(--carvao); color: var(--branco); }
+  .salao-texto p { color: var(--cinza-claro); }
+  .salao-texto img { width: 84px; height: 84px; border-radius: 0; }
+  .salao-fotos { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .55fr); gap: 1rem; }
+  @media (max-width: 900px) { .salao-grade { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 520px) { .salao-fotos { grid-template-columns: minmax(0, 1fr); } .salao-fotos figure:last-child { display: none; } }
+  .google { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: 1.5rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .google-nota { display: grid; align-content: start; gap: .5rem; }
+  .google-marca { display: flex; align-items: center; gap: .5rem; color: var(--tinta-2); font-weight: 600; }
+  .g-logo { width: 22px; height: 22px; }
+  .google-numero { font: 800 4rem/1 var(--fonte-titulo); }
+  .estrelas { display: inline-flex; gap: 2px; color: #E8A100; }
+  .estrelas svg { width: 20px; height: 20px; fill: currentColor; }
+  .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+  .depoimentos li { display: grid; align-content: start; gap: .7rem; padding: 1.3rem; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
+  .dep-autor { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; }
+  .dep-autor p { min-width: 0; overflow-wrap: anywhere; }
+  .dep-autor p { display: grid; line-height: 1.25; }
+  .dep-autor span { color: var(--tinta-2); font-size: .85rem; }
+  .dep-avatar { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--av); color: var(--branco); font-weight: 600; }
+  .dep-autor .g-logo { margin-left: auto; width: 20px; height: 20px; }
+  blockquote { margin: 0; }
+  @media (max-width: 960px) { .google { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---------- como chegar ---------- */
+  .chegar { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); overflow: hidden; border-radius: var(--raio); background: var(--branco); box-shadow: inset 0 0 0 1px var(--linha); }
+  .chegar iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
+  .chegar-dados { display: grid; align-content: start; gap: 1.2rem; padding: clamp(1.3rem, 3vw, 2rem); }
+  .chegar-dados h3 { margin-bottom: .2rem; color: var(--tinta-2); font: 600 .9rem/1.2 var(--fonte); }
+  .chegar-dados a:not(.btn) { font-weight: 600; text-underline-offset: 3px; }
+  .horarios { display: grid; gap: .15rem; margin: 0; font-variant-numeric: tabular-nums; }
+  .horarios div { display: flex; justify-content: space-between; gap: 1rem; }
+  .horarios dt { font-weight: 500; }
+  .horarios dd { margin: 0; color: var(--tinta-2); text-align: right; }
+  @media (max-width: 860px) { .chegar { grid-template-columns: minmax(0, 1fr); } .chegar iframe { min-height: 300px; } }
+
+  /* ---------- rodape e botao do WhatsApp ---------- */
+  .rodape { padding-block: 2.5rem; background: var(--carvao); color: var(--cinza-claro); }
+  .rodape-grade { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; }
+  .rodape-marca { display: flex; align-items: center; gap: 1rem; color: var(--branco); text-decoration: none; }
+  .rodape-marca img { width: 64px; height: 64px; }
+  .redes { display: flex; gap: .5rem; margin: 0; }
+  .redes a { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--carvao-3); color: var(--branco); }
+  .redes svg { width: 22px; height: 22px; }
+  .flutuante { position: fixed; right: clamp(14px, 3vw, 28px); bottom: clamp(14px, 3vw, 28px); z-index: 25; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--zap); color: var(--branco); box-shadow: 0 8px 22px -8px rgba(18, 18, 18, .45); transition: background-color var(--dur-ui) ease, transform .16s var(--ease-out); }
+  .flutuante:active { transform: scale(.95); }
+  @media (hover: hover) and (pointer: fine) { .flutuante:hover { background: var(--zap-2); } }
+  .flutuante svg { width: 30px; height: 30px; }
+  @media (max-width: 600px) { .flutuante { width: 56px; height: 56px; } .flutuante svg { width: 27px; height: 27px; } }
+</style>
+<script>
+/* janela ou menu abertos com mouse ou dedo: ao fechar, o link nao fica com a moldura de selecao;
+   quem navega pelo teclado continua vendo onde esta */
+(() => {
+  let viaPonteiro = false;
+  addEventListener("pointerdown", () => { viaPonteiro = true; }, true);
+  addEventListener("keydown", (e) => { if (["Tab", "Enter", " "].includes(e.key)) viaPonteiro = false; }, true);
+  addEventListener("click", (e) => { const a = e.target.closest("a[target=_blank], a[href^='#']"); if (a && viaPonteiro) setTimeout(() => a.blur(), 0); }, true);
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="i-estrela" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9Z"/></symbol>
+  <symbol id="i-agenda" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M8.5 14.5h2M13.5 14.5h2"/></g></symbol>
+  <symbol id="i-g" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8a10 10 0 0 1-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.1z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7A22 22 0 0 0 24 46z"/><path fill="#FBBC05" d="M11.8 28.3a13.2 13.2 0 0 1 0-8.6v-5.7H4.5a22 22 0 0 0 0 20z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A22 22 0 0 0 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></symbol>
+</svg>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="envoltorio topo-grade">
+    <a class="marca" href="#" translate="no">
+      <img src="img/selo-branco.webp" width="320" height="320" alt="">
+      <span><strong>Felipe Pioli</strong><small>Barbearia desde 2013</small></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#protese">Prótese capilar</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#salao">A barbearia</a>
+      <a href="#chegar">Como chegar</a>
+    </nav>
+    <a class="btn" href="#agendar" aria-label="Agendar horário"><svg aria-hidden="true"><use href="#i-agenda"/></svg><span class="topo-rotulo">Agendar</span></a>
+    <button class="menu-botao" type="button" id="menu-botao" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="conteudo">
+  <section class="abertura" aria-labelledby="titulo">
+    <div class="envoltorio">
+      <div class="abertura-grade">
+        <div class="abertura-texto">
+          <h1 id="titulo">Corte, barba e <em>prótese capilar</em> em Cravinhos</h1>
+          <p>Tradição e modernidade desde 2013: cortes clássicos e modernos, barba e prótese capilar.</p>
+          <div class="abertura-botoes">
+            <a class="btn" href="#agendar"><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agendar horário</a>
+            <a class="btn btn-linha" href="#protese">Conhecer a prótese capilar</a>
+          </div>
+        </div>
+        <figure class="abertura-foto">
+          <img src="img/salao.webp" width="1080" height="560" alt="O salão da Barbearia Felipe Pioli, com guitarras, discos e quadros de bandas nas paredes" fetchpriority="high">
+          <span class="disco" aria-hidden="true"><img src="img/selo-branco.webp" width="320" height="320" alt=""></span>
+        </figure>
+      </div>
+      <ul class="fatos">
+        <li><strong>5,0 no Google</strong>134 avaliações de clientes</li>
+        <li><strong>Desde 2013</strong>Na Av. Fagundes, 1078</li>
+        <li><strong>Terça a sábado</strong>Terça a sexta, das 9h às 19h; sábado, das 8h às 14h30</li>
+        <li><strong>Agenda online</strong>Escolha o serviço, o dia e o horário</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao tabua" id="protese" aria-labelledby="titulo-protese">
+    <div class="envoltorio protese-grade">
+      <div>
+        <div class="compara" id="compara" style="--pos:50%">
+          <img class="antes" id="foto-antes" src="img/protese-1-antes.webp" width="720" height="720" alt="Antes: cliente com pouco cabelo no topo da cabeça" loading="lazy">
+          <img class="depois" id="foto-depois" src="img/protese-1-depois.webp" width="720" height="720" alt="Depois: o mesmo cliente com a prótese capilar aplicada e cortada" loading="lazy">
+          <span class="rotulo rotulo-antes" aria-hidden="true">Antes</span>
+          <span class="rotulo rotulo-depois" aria-hidden="true">Depois</span>
+          <span class="compara-linha" aria-hidden="true"><span class="compara-alca"><svg viewBox="0 0 24 24"><path d="M9 6 3 12l6 6M15 6l6 6-6 6"/></svg></span></span>
+          <label class="so-leitor" for="compara-range">Arraste para comparar o antes e o depois</label>
+          <input type="range" id="compara-range" min="0" max="100" value="50">
+        </div>
+        <div class="clientes" role="group" aria-label="Escolha o cliente">
+          <button class="cliente" type="button" data-par="1" aria-pressed="true"><img src="img/protese-1-depois.webp" width="720" height="720" alt="" loading="lazy">Cliente 1</button>
+          <button class="cliente" type="button" data-par="2" aria-pressed="false"><img src="img/protese-2-depois.webp" width="720" height="720" alt="" loading="lazy">Cliente 2</button>
+          <button class="cliente" type="button" data-par="3" aria-pressed="false"><img src="img/protese-3-depois.webp" width="720" height="477" alt="" loading="lazy">Cliente 3</button>
+        </div>
+      </div>
+      <div class="protese-texto">
+        <h2 id="titulo-protese">Prótese capilar com resultado imediato</h2>
+        <p>A prótese capilar é uma base fina com fios, fixada sobre a área com pouco cabelo e cortada junto com o seu cabelo. Não há cirurgia: você sai da cadeira com o resultado pronto. Arraste a linha da foto para comparar o antes e o depois de clientes nossos.</p>
+        <ol class="etapas">
+          <li><h3>Avaliação</h3><p>Conversamos sobre o resultado que você quer e avaliamos a área, o volume e a cor do seu cabelo.</p></li>
+          <li><h3>Aplicação</h3><p>A prótese é fixada e cortada no estilo escolhido, no mesmo atendimento.</p></li>
+          <li><h3>Manutenção e coloração</h3><p>Nos retornos fazemos a limpeza, a nova fixação e a coloração, para a prótese seguir com cara de cabelo.</p></li>
+        </ol>
+        <div><a class="btn" href="#agendar" data-servico="avaliacao"><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agendar avaliação</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="servicos" aria-labelledby="titulo-servicos">
+    <div class="envoltorio">
+      <div class="secao-cabeca">
+        <h2 id="titulo-servicos">Serviços</h2>
+        <p>Do corte de sempre à prótese capilar, com hora marcada.</p>
+      </div>
+      <ul class="servicos">
+        <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="23" r="4"/><circle cx="23" cy="23" r="4"/><path d="M11.5 20 24 4M20.5 20 8 4"/></svg><h3>Corte masculino</h3><p>Cortes clássicos e modernos, na tesoura ou na máquina.</p><a href="#agendar" data-servico="corte">Agendar corte</a></li>
+        <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v6c0 8-4 15-9 17-5-2-9-9-9-17Z"/><path d="M12 13c1.3 1 2.6 1.5 4 1.5s2.7-.5 4-1.5"/></svg><h3>Barba</h3><p>Barba desenhada e acabada na navalha.</p><a href="#agendar" data-servico="barba">Agendar barba</a></li>
+        <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26 22 10M19 7l6 6M22 4l6 6-3 3-6-6Z"/><path d="M5 22c2 0 3 1 3 3"/></svg><h3>Pigmentação de barba</h3><p>Preenche as falhas e deixa a barba mais cheia.</p><a href="#agendar" data-servico="pigmentacao">Agendar pigmentação</a></li>
+        <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 15c4-4 9-5 14-4M20 11.5c3 .5 6 2 8 4"/><path d="M8 21c2.3 2 5 3 8 3s5.7-1 8-3"/></svg><h3>Sobrancelha</h3><p>Acabamento da sobrancelha, sem exagero.</p><a href="#agendar" data-servico="sobrancelha">Agendar sobrancelha</a></li>
+        <li class="servico servico-destaque"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 18c0-7 4-12 10-12s10 5 10 12"/><path d="M6 18c3-1 5-4 6-7 2 3 6 5 14 7"/><path d="M8 18v4a8 8 0 0 0 16 0v-4"/></svg><h3>Prótese capilar</h3><p>Avaliação, aplicação e corte, com resultado imediato.</p><a href="#agendar" data-servico="avaliacao">Agendar avaliação</a></li>
+        <li class="servico"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 4h6v8l-3 4-3-4Z"/><path d="M12 16v12M20 9a6 6 0 0 1 6 6c0 4-6 11-6 11s-6-7-6-11a6 6 0 0 1 6-6Z"/></svg><h3>Manutenção e coloração da prótese</h3><p>Limpeza, nova fixação e coloração da sua prótese.</p><a href="#agendar" data-servico="manutencao">Agendar manutenção</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao agenda" id="agendar" aria-labelledby="titulo-agendar">
+    <div class="envoltorio">
+      <div class="secao-cabeca">
+        <h2 id="titulo-agendar">Agende seu horário</h2>
+        <p>Escolha o serviço, o profissional, o dia e o horário. A reserva aparece na hora na nossa agenda e você recebe um lembrete no WhatsApp um dia antes.</p>
+      </div>
+      <div class="agenda-grade">
+        <form id="agenda-form" novalidate>
+          <fieldset class="passo">
+            <legend>Serviço</legend>
+            <div class="opcoes" id="op-servicos"></div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend>Profissional</legend>
+            <div class="opcoes" id="op-profissional">
+              <label class="opcao"><input type="radio" name="profissional" value="Felipe Pioli" checked><strong>Felipe Pioli</strong><small>Fundador da barbearia</small></label>
+              <label class="opcao"><input type="radio" name="profissional" value="Primeiro profissional livre"><strong>Qualquer profissional</strong><small>O primeiro horário livre da equipe</small></label>
+            </div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend>Dia</legend>
+            <div class="dias" id="op-dias"></div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend id="legenda-horas">Horário</legend>
+            <div id="op-horas"></div>
+          </fieldset>
+        </form>
+        <aside class="resumo" id="resumo" aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao tabua" id="salao" aria-labelledby="titulo-salao">
+    <div class="envoltorio">
+      <div class="salao-grade">
+        <div class="salao-fotos">
+          <figure><img src="img/salao.webp" width="1080" height="560" alt="Barbeiro atendendo um cliente no salão" loading="lazy"></figure>
+          <figure><img src="img/parede.webp" width="640" height="1086" alt="Parede de tábua branca com guitarra, discos de vinil e quadros de rock" loading="lazy"></figure>
+        </div>
+        <div class="salao-texto">
+          <img src="img/selo-branco.webp" width="320" height="320" alt="" loading="lazy">
+          <h2 id="titulo-salao">Uma barbearia com trilha sonora</h2>
+          <p>Guitarras, discos de vinil e quadros das bandas nas paredes de tábua. Aqui o cuidado vai além do corte: atendimento com hora marcada e boa conversa.</p>
+        </div>
+      </div>
+      <div class="google" id="avaliacoes">
+        <div class="google-nota">
+          <p class="google-marca"><svg class="g-logo" aria-hidden="true"><use href="#i-g"/></svg>Avaliações no Google</p>
+          <p class="google-numero">5,0</p>
+          <span class="estrelas" role="img" aria-label="Nota 5 de 5"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span>
+          <p>134 avaliações de clientes</p>
+          <p><a class="btn btn-linha" href="https://www.google.com/maps/search/?api=1&amp;query=Barbearia%20Felipe%20Pioli%2C%20Av.%20Fagundes%2C%201078%2C%20Cravinhos" target="_blank" rel="noopener">Ver todas no Google</a></p>
+        </div>
+        <ul class="depoimentos">
+          <li><div class="dep-autor"><span class="dep-avatar" style="--av:#1A73E8" aria-hidden="true">W</span><p><strong>Willian Balduino</strong><span>Local Guide · 2025</span></p><svg class="g-logo" aria-hidden="true"><use href="#i-g"/></svg></div><span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span><blockquote>“Profissionais muito bons. Virei cliente! Parabéns pelo profissionalismo.”</blockquote></li>
+          <li><div class="dep-autor"><span class="dep-avatar" style="--av:#C5221F" aria-hidden="true">G</span><p><strong>Gabriel Silva</strong><span>2025</span></p><svg class="g-logo" aria-hidden="true"><use href="#i-g"/></svg></div><span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span><blockquote>“Corto des do dia em que o salão abriu na minha opinião o melhor da cidade excelentes profissionais”</blockquote></li>
+          <li><div class="dep-autor"><span class="dep-avatar" style="--av:#0B8043" aria-hidden="true">M</span><p><strong>Marcio sertorio</strong><span>Local Guide · 2023</span></p><svg class="g-logo" aria-hidden="true"><use href="#i-g"/></svg></div><span class="estrelas" role="img" aria-label="5 de 5 estrelas"><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg><svg aria-hidden="true"><use href="#i-estrela"/></svg></span><blockquote>“Recomendo! Muito bom atendimento.”</blockquote></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="chegar" aria-labelledby="titulo-chegar">
+    <div class="envoltorio">
+      <div class="secao-cabeca"><h2 id="titulo-chegar">Como chegar</h2></div>
+      <div class="chegar">
+        <iframe title="Mapa da Barbearia Felipe Pioli em Cravinhos" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Barbearia%20Felipe%20Pioli%2C%20Av.%20Fagundes%2C%201078%2C%20Jardim%20Anhanguera%2C%20Cravinhos%20-%20SP&amp;z=16&amp;output=embed"></iframe>
+        <div class="chegar-dados">
+          <div><h3>Endereço</h3><p>Av. Fagundes, 1078<br>Jardim Anhanguera, Cravinhos (SP)</p></div>
+          <div><h3>Horário</h3>
+            <dl class="horarios">
+              <div><dt>Terça a sexta</dt><dd>9h às 12h e 14h às 19h</dd></div>
+              <div><dt>Sábado</dt><dd>8h às 14h30</dd></div>
+              <div><dt>Domingo e segunda</dt><dd>Fechado</dd></div>
+            </dl>
+          </div>
+          <div><h3>WhatsApp</h3><a href="https://wa.me/5516996102587" target="_blank" rel="noopener">(16) 99610-2587</a></div>
+          <div><h3>Instagram</h3><a href="https://www.instagram.com/barbearia_felipepioli" target="_blank" rel="noopener">@barbearia_felipepioli</a></div>
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.%20Fagundes%2C%201078%2C%20Cravinhos%20-%20SP" target="_blank" rel="noopener">Abrir a rota no mapa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="envoltorio rodape-grade">
+    <a class="rodape-marca" href="#" translate="no"><img src="img/selo-branco.webp" width="320" height="320" alt="Barbearia Felipe Pioli"><span>Corte, barba e prótese capilar em Cravinhos, desde 2013</span></a>
+    <p class="redes"><a href="https://www.instagram.com/barbearia_felipepioli" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></p>
+  </div>
+</footer>
+
+<a class="flutuante" href="https://wa.me/5516996102587?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20barbearia%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp" title="Conversar no WhatsApp"><svg aria-hidden="true"><use href="#i-zap"/></svg></a>
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const WHATSAPP = "5516996102587";
+const zap = (txt) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* ---------- antes e depois ---------- */
+const compara = $("#compara");
+$("#compara-range").addEventListener("input", (e) => compara.style.setProperty("--pos", e.target.value + "%"));
+const ALTS = [
+  ["Antes: cliente com pouco cabelo no topo da cabeça", "Depois: o mesmo cliente com a prótese capilar aplicada e cortada"],
+  ["Antes: cliente com entradas e o topo sem cabelo", "Depois: o mesmo cliente com a prótese, penteado para trás"],
+  ["Antes: cliente com o cabelo ralo na frente", "Depois: o mesmo cliente com a prótese, topete penteado"],
+];
+document.querySelectorAll(".cliente").forEach((b) => b.addEventListener("click", () => {
+  const k = +b.dataset.par;
+  document.querySelectorAll(".cliente").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  $("#foto-antes").src = `img/protese-${k}-antes.webp`; $("#foto-antes").alt = ALTS[k - 1][0];
+  $("#foto-depois").src = `img/protese-${k}-depois.webp`; $("#foto-depois").alt = ALTS[k - 1][1];
+  $("#compara-range").value = 50; compara.style.setProperty("--pos", "50%");
+}));
+
+/* ---------- agenda ----------
+   Horario de funcionamento da ficha do Google. A ocupacao dos horarios e simulada para mostrar a agenda;
+   na versao real ela vem da agenda da barbearia. SINAL: valor de exemplo, so para a protese. */
+const SERVICOS = [
+  { id: "corte", nome: "Corte masculino", desc: "Clássico ou moderno", vagas: 1 },
+  { id: "barba", nome: "Barba", desc: "Desenho e acabamento", vagas: 1 },
+  { id: "pigmentacao", nome: "Pigmentação de barba", desc: "Preenche as falhas", vagas: 1 },
+  { id: "sobrancelha", nome: "Sobrancelha", desc: "Acabamento", vagas: 1 },
+  { id: "avaliacao", nome: "Avaliação de prótese capilar", desc: "Sinal no Pix para garantir o horário", vagas: 1, sinal: 30 },
+  { id: "manutencao", nome: "Manutenção e coloração da prótese", desc: "Sinal no Pix para garantir o horário", vagas: 3, sinal: 30 },
+];
+const EXPEDIENTE = { 2: [[9, 12], [14, 19]], 3: [[9, 12], [14, 19]], 4: [[9, 12], [14, 19]], 5: [[9, 12], [14, 19]], 6: [[8, 14.5]] };
+const SEMANA = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+const SEM_CURTA = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const deIso = (s) => { const [a, m, d] = s.split("-").map(Number); return new Date(a, m - 1, d); };
+const hhmm = (h) => `${Math.floor(h)}h${h % 1 ? "30" : ""}`;
+const hora2 = (h) => `${String(Math.floor(h)).padStart(2, "0")}:${h % 1 ? "30" : "00"}`;
+const reais = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const hash = (s) => { let x = 2166136261; for (const c of s) { x ^= c.charCodeAt(0); x = Math.imul(x, 16777619); } return (x >>> 0) % 100; };
+
+const estado = { servico: "corte", prof: "Felipe Pioli", dia: null, hora: null, nome: "", fone: "", fase: "escolha", reservas: [] };
+const servico = () => SERVICOS.find((s) => s.id === estado.servico);
+
+function diasAbertos() {
+  const lista = [], d = new Date(); d.setHours(0, 0, 0, 0);
+  while (lista.length < 12) { if (EXPEDIENTE[d.getDay()]) lista.push(iso(d)); d.setDate(d.getDate() + 1); }
+  return lista;
+}
+const primeiroSabado = () => diasAbertos().find((s) => deIso(s).getDay() === 6);
+function ocupado(dia, h) {
+  if (estado.reservas.some((r) => r.dia === dia && r.prof === estado.prof && h >= r.ini && h < r.fim)) return true;
+  const felipe = estado.prof === "Felipe Pioli";
+  if (felipe && dia === primeiroSabado()) return true;   /* um sabado lotado, para mostrar a lista de espera */
+  const sab = deIso(dia).getDay() === 6;
+  return hash(dia + h + estado.prof) < (sab ? 50 : 30) + (felipe ? 12 : 0);
+}
+function horarios(dia) {
+  const agora = new Date(), hoje = iso(agora) === dia, n = servico().vagas, out = [];
+  for (const [a, b] of EXPEDIENTE[deIso(dia).getDay()]) {
+    for (let h = a; h + n * .5 <= b; h += .5) {
+      if (hoje && h <= agora.getHours() + agora.getMinutes() / 60 + .5) continue;
+      let livre = true;
+      for (let k = 0; k < n; k++) if (ocupado(dia, h + k * .5)) livre = false;
+      out.push({ h, livre, tarde: h >= 12 });
+    }
+  }
+  return out;
+}
+
+function desenharServicos() {
+  $("#op-servicos").innerHTML = SERVICOS.map((s) => `<label class="opcao"><input type="radio" name="servico" value="${s.id}"${s.id === estado.servico ? " checked" : ""}><strong>${esc(s.nome)}</strong><small>${esc(s.desc)}</small></label>`).join("");
+}
+function desenharDias() {
+  const dias = diasAbertos();
+  if (!dias.includes(estado.dia)) estado.dia = dias.find((d) => horarios(d).some((x) => x.livre)) || dias[0];
+  $("#op-dias").innerHTML = dias.map((s) => { const d = deIso(s); return `<div class="dia"><label class="opcao"><input type="radio" name="dia" value="${s}"${s === estado.dia ? " checked" : ""}><small>${SEM_CURTA[d.getDay()]}</small><strong>${d.getDate()}</strong><small>${MESES[d.getMonth()].slice(0, 3)}</small><span class="so-leitor">${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}</span></label></div>`; }).join("");
+}
+function desenharHoras() {
+  const lista = horarios(estado.dia);
+  if (estado.fase !== "feito" && !lista.some((x) => x.livre && x.h === estado.hora)) estado.hora = null;
+  const d = deIso(estado.dia);
+  $("#legenda-horas").textContent = `Horário de ${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`;
+  if (!lista.some((x) => x.livre)) {
+    $("#op-horas").innerHTML = `<div class="lotado"><p><strong>Este dia está lotado${estado.prof === "Felipe Pioli" ? " com o Felipe" : ""}.</strong> Entre na lista de espera: avisamos pelo WhatsApp se um horário vagar. Você também pode escolher outro dia${estado.prof === "Felipe Pioli" ? " ou qualquer profissional" : ""}.</p><a class="btn btn-zap" target="_blank" rel="noopener" href="${zap(`Olá! Gostaria de entrar na lista de espera para ${servico().nome.toLowerCase()} no dia ${d.getDate()}/${d.getMonth() + 1}, com ${estado.prof === "Felipe Pioli" ? "o Felipe" : "qualquer profissional"}.`)}"><svg aria-hidden="true"><use href="#i-zap"/></svg>Entrar na lista de espera</a></div>`;
+    return;
+  }
+  let html = "", periodo = null;
+  for (const x of lista) {
+    if (x.tarde !== periodo) { periodo = x.tarde; html += `<p class="periodo">${x.tarde ? "Tarde" : "Manhã"}</p>`; }
+    html += `<div class="hora"><label class="opcao"><input type="radio" name="hora" value="${x.h}"${x.livre ? "" : " disabled"}${x.h === estado.hora ? " checked" : ""}><span>${hora2(x.h)}</span>${x.livre ? "" : '<span class="so-leitor"> ocupado</span>'}</label></div>`;
+  }
+  $("#op-horas").innerHTML = `<div class="horas">${html}</div>`;
+}
+const quando = () => { const d = deIso(estado.dia); return `${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`; };
+
+function qr() {
+  const t = 25, c = [];
+  const canto = (x, y) => `<path d="M${x} ${y}h7v7h-7Z M${x + 1} ${y + 1}v5h5v-5Z" fill-rule="evenodd"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3"/>`;
+  for (let y = 0; y < t; y++) for (let x = 0; x < t; x++) {
+    if ((x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16)) continue;
+    if (hash(`pioli${x},${y}`) < 48) c.push(`<rect x="${x}" y="${y}" width="1" height="1"/>`);
+  }
+  return `<svg viewBox="0 0 ${t} ${t}" shape-rendering="crispEdges" fill="#161616" role="img" aria-label="QR Code do Pix (teste)">${canto(0, 0)}${canto(18, 0)}${canto(0, 18)}${c.join("")}</svg>`;
+}
+
+function desenharResumo() {
+  const s = servico(), r = $("#resumo");
+  if (estado.fase === "pix") {
+    r.innerHTML = `<h3>Sinal no Pix</h3><div class="pix">${qr()}<p>Pix de <strong>${reais(s.sinal)}</strong> para a Barbearia Felipe Pioli. O valor é descontado no dia do atendimento.</p><p class="teste">Ambiente de teste: nenhum valor é cobrado.</p></div><button class="btn" type="button" id="pagar">Simular o pagamento</button><button class="btn btn-linha" type="button" id="voltar">Voltar</button>`;
+    return;
+  }
+  if (estado.fase === "feito") {
+    const d = deIso(estado.dia), ini = hora2(estado.hora).replace(":", ""), fimH = estado.hora + s.vagas * .5, fim = hora2(fimH).replace(":", "");
+    const dt = `${iso(d).replace(/-/g, "")}T${ini}00/${iso(d).replace(/-/g, "")}T${fim}00`;
+    const agenda = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`${s.nome} na Barbearia Felipe Pioli`)}&dates=${dt}&ctz=America/Sao_Paulo&details=${encodeURIComponent("Av. Fagundes, 1078, Jardim Anhanguera, Cravinhos. Para desmarcar, avise com 24 horas de antecedência pelo WhatsApp (16) 99610-2587.")}`;
+    const msg = `Olá! Reservei pelo site: ${s.nome.toLowerCase()} na ${quando()}, às ${hhmm(estado.hora)}, com ${estado.prof === "Felipe Pioli" ? "o Felipe" : "qualquer profissional"}. Nome: ${estado.nome}.${s.sinal ? ` Sinal de ${reais(s.sinal)} pago no Pix.` : ""}`;
+    r.innerHTML = `<div class="feito"><span class="feito-disco" aria-hidden="true"></span><h3>Horário reservado</h3><p><strong>${esc(s.nome)}</strong><br>${quando()}, às ${hhmm(estado.hora)}<br>${estado.prof === "Felipe Pioli" ? "Com o Felipe Pioli" : "Com o primeiro profissional livre"}</p><ul><li>Enviamos um lembrete no seu WhatsApp um dia antes.</li>${s.sinal ? `<li>Sinal de ${reais(s.sinal)} pago, descontado no dia.</li>` : ""}<li>Para desmarcar ou trocar, avise com 24 horas de antecedência.</li></ul><a class="btn btn-zap" href="${zap(msg)}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-zap"/></svg>Enviar a reserva no WhatsApp</a><a class="btn btn-linha" href="${agenda}" target="_blank" rel="noopener">Adicionar ao Google Agenda</a><button class="btn btn-linha" type="button" id="outro">Marcar outro horário</button></div>`;
+    return;
+  }
+  r.innerHTML = `<h3>Seu horário</h3>
+    <dl>
+      <div><dt>Serviço</dt><dd>${esc(s.nome)}</dd></div>
+      <div><dt>Profissional</dt><dd>${esc(estado.prof === "Felipe Pioli" ? "Felipe Pioli" : "Qualquer profissional")}</dd></div>
+      <div><dt>Dia</dt><dd>${quando()}</dd></div>
+      <div><dt>Horário</dt><dd>${estado.hora == null ? "Escolha um horário" : hhmm(estado.hora)}</dd></div>
+    </dl>
+    <label class="campo">Seu nome<input type="text" id="nome" autocomplete="name" value="${esc(estado.nome)}"></label>
+    <label class="campo">Seu WhatsApp, para o lembrete<input type="tel" id="fone" inputmode="tel" autocomplete="tel" placeholder="(16) 99999-9999" value="${esc(estado.fone)}"></label>
+    ${s.sinal ? `<p class="sinal"><strong>Sinal de ${reais(s.sinal)} no Pix</strong>Garante o horário da prótese e é descontado no dia. Valor de exemplo.</p>` : ""}
+    <p class="erro" id="erro" role="alert"></p>
+    <button class="btn" type="button" id="reservar">${s.sinal ? "Pagar o sinal e reservar" : "Reservar horário"}</button>
+    <p class="aviso">Para desmarcar ou trocar o horário, avise com 24 horas de antecedência.</p>`;
+}
+function tudo() { desenharServicos(); desenharDias(); desenharHoras(); desenharResumo(); }
+
+$("#agenda-form").addEventListener("change", (e) => {
+  const t = e.target; estado.fase = "escolha";
+  if (t.name === "servico") { estado.servico = t.value; desenharHoras(); }
+  else if (t.name === "profissional") { estado.prof = t.value; desenharDias(); desenharHoras(); }
+  else if (t.name === "dia") { estado.dia = t.value; desenharHoras(); }
+  else if (t.name === "hora") estado.hora = +t.value;
+  else return;
+  estado.fase = "escolha"; desenharResumo();
+});
+$("#resumo").addEventListener("input", (e) => { if (e.target.id === "nome") estado.nome = e.target.value; if (e.target.id === "fone") estado.fone = e.target.value; });
+$("#resumo").addEventListener("click", (e) => {
+  const id = e.target.closest("button")?.id;
+  if (id === "reservar") {
+    const erro = estado.hora == null ? "Escolha um horário." : estado.nome.trim().length < 2 ? "Informe o seu nome." : estado.fone.replace(/\D/g, "").length < 10 ? "Informe o seu WhatsApp com DDD." : "";
+    if (erro) { $("#erro").textContent = erro; return; }
+    if (servico().sinal) { estado.fase = "pix"; desenharResumo(); $("#pagar").focus({ preventScroll: true }); }
+    else confirmar();
+  } else if (id === "pagar") confirmar();
+  else if (id === "voltar") { estado.fase = "escolha"; desenharResumo(); }
+  else if (id === "outro") { estado.fase = "escolha"; estado.hora = null; desenharHoras(); desenharResumo(); }
+});
+function confirmar() {
+  estado.reservas.push({ dia: estado.dia, prof: estado.prof, ini: estado.hora, fim: estado.hora + servico().vagas * .5 });
+  estado.fase = "feito"; desenharHoras(); desenharResumo();
+  if (matchMedia("(max-width: 960px)").matches) $("#resumo").scrollIntoView({ block: "start" });
+}
+/* os botoes "Agendar ..." ja escolhem o servico */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-servico]");
+  if (!a) return;
+  estado.servico = a.dataset.servico; estado.fase = "escolha"; desenharServicos(); desenharHoras(); desenharResumo();
+});
+tudo();
+
+/* ---------- menu do celular ---------- */
+const topo = $(".topo"), menuBotao = $("#menu-botao");
+function menu(abrir) {
+  topo.classList.toggle("menu-aberto", abrir);
+  menuBotao.setAttribute("aria-expanded", String(abrir));
+  menuBotao.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu");
+}
+menuBotao.addEventListener("click", () => menu(!topo.classList.contains("menu-aberto")));
+$("#menu").addEventListener("click", (e) => { if (e.target.closest("a")) menu(false); });
+document.addEventListener("click", (e) => { if (!topo.contains(e.target)) menu(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && topo.classList.contains("menu-aberto")) { menu(false); menuBotao.focus(); } });
+matchMedia("(min-width: 66.01em)").addEventListener("change", (m) => { if (m.matches) menu(false); });
+</script>
+</body>
+</html>
