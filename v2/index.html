@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="pt-BR" data-type="place" data-radius="soft" data-buttons="solid" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barbearia Felipe Pioli: corte, barba e prótese capilar em Cravinhos</title>
+<meta name="description" content="Barbearia na Av. Fagundes, em Cravinhos, desde 2013. Corte, barba, pigmentação e prótese capilar com hora marcada pelo site.">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Barbearia Felipe Pioli: corte, barba e prótese capilar em Cravinhos">
+<meta property="og:description" content="Corte, barba e prótese capilar na Av. Fagundes, com agenda online.">
+<meta property="og:image" content="img/maquinas.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<meta name="theme-color" content="#f3f2ef">
+<meta name="color-scheme" content="only light">
+<meta name="darkreader-lock">
+<meta name="site-kind" content="other">
+<meta name="page-type" content="place">
+<meta name="page-kind" content="place">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #f3f2ef; --p-surface: #e7e5e1; --p-ink: #141414; --p-muted: #5f5f5e;
+  --p-accent: #c8202a; --p-accent-ink: #f3f2ef; --p-action: #c8202a; --p-action-ink: #f3f2ef;
+  --p-inv-bg: #141414; --p-inv-surface: #202020; --p-inv-ink: #f3f2ef; --p-inv-muted: #959593;
+  --p-inv-accent: #c8202a; --p-inv-accent-ink: #f3f2ef; --p-inv-action: #c8202a; --p-inv-action-ink: #f3f2ef;
+  --font-display: "Work Sans", system-ui, sans-serif;
+  --font-text: "Work Sans", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.025em;
+}
+</style>
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/word-highlight/moment.js">
+<!-- page CSS: o selo, o momento do endereco, o antes e depois e a agenda (o produto que vendemos) -->
+<style>
+  :root { color-scheme: only light; }
+  .rows .rows__name small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-body); }
+  .nav__logo img { width: 40px; height: 40px; flex: none; }
+  .section-head .type-moment, .type-moment { max-width: none; margin: 0; color: var(--p-ink); font: var(--display-weight) clamp(40px, 5.6vw, 84px)/1.02 var(--font-display); letter-spacing: -0.03em; }
+  .type-moment a { color: inherit; text-decoration: none; }
+  .visit--card .visit__cols { grid-template-columns: minmax(0, 1fr); }
+  .visit .hours dt, .visit .hours dd { white-space: nowrap; }
+  @media (max-width: 520px) { .visit--card .visit__cols { grid-template-columns: minmax(0, 1fr); } }
+  .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* antes e depois que se arrasta */
+  .compara { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--p-ink); user-select: none; touch-action: pan-y; }
+  .compara img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .compara .depois { clip-path: inset(0 0 0 var(--pos, 50%)); }
+  .compara-linha { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; margin-left: -1px; background: #fff; pointer-events: none; }
+  .compara-alca { position: absolute; top: 50%; left: 50%; display: grid; place-items: center; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: var(--p-accent); color: #fff; }
+  .compara-alca svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .compara input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+  .compara:has(input:focus-visible) { outline: 3px solid var(--p-accent); outline-offset: 3px; }
+  .rotulo { position: absolute; top: 12px; padding: 4px 10px; background: rgba(20, 20, 20, .8); color: #fff; font-size: 14px; font-weight: 500; pointer-events: none; }
+  .rotulo-antes { left: 12px; } .rotulo-depois { right: 12px; background: var(--p-accent); }
+  .clientes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .cliente { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 4px 14px 4px 4px; border: 0; border-radius: 10px; background: var(--p-surface); color: var(--p-ink); font: 500 16px/1.2 var(--font-text); cursor: pointer; }
+  .cliente img { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; }
+  .cliente[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--p-accent); }
+
+  /* agenda, no chao claro */
+  .agenda-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+  .passo { display: grid; gap: 12px; margin: 0 0 28px; padding: 0; border: 0; min-width: 0; }
+  .passo legend { padding: 0; margin-bottom: 12px; font: 500 20px/1.3 var(--font-text); }
+  .passo legend small { margin-left: 8px; color: var(--muted); font-weight: 400; font-size: 16px; }
+  .opcoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr)); gap: 8px; }
+  .opcao { position: relative; display: grid; gap: 2px; min-height: 56px; padding: 12px 14px; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); cursor: pointer; transition: box-shadow .2s ease, background-color .2s ease; }
+  .opcao input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+  .opcao strong { font-weight: 500; }
+  .opcao small { color: var(--muted); font-size: 14px; line-height: 1.35; }
+  .opcao, .resumo { min-width: 0; }
+  .opcao strong, .opcao small, .resumo dd { overflow-wrap: anywhere; }
+  .opcao-marca { padding-right: 40px; }
+  .opcao-marca::after { content: ""; position: absolute; top: 14px; right: 14px; width: 18px; height: 18px; border-radius: 5px; box-shadow: inset 0 0 0 1.5px #8a8a88; }
+  .opcao-marca:has(input:checked)::after { background: var(--p-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12.5 4 4 8-9' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; box-shadow: none; }
+  @media (hover: hover) and (pointer: fine) { .opcao:hover { box-shadow: inset 0 0 0 1px #8a8a88; } }
+  .opcao:has(input:checked) { box-shadow: inset 0 0 0 2px var(--p-accent); }
+  .opcao:has(input:focus-visible) { outline: 3px solid var(--p-accent); outline-offset: 2px; }
+  .dias { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .dia { min-width: 0; }
+  .dia .opcao { justify-items: center; padding: 10px 4px; text-align: center; }
+  .dia strong { font-size: 24px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .horas { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  .hora .opcao { justify-items: center; min-height: 48px; padding: 10px 4px; font-variant-numeric: tabular-nums; }
+  .hora .opcao:has(input:disabled) { background: transparent; color: var(--muted); text-decoration: line-through; cursor: not-allowed; }
+  .periodo { grid-column: 1 / -1; margin-top: 4px; color: var(--muted); font-size: 14px; font-weight: 500; }
+  .lotado { display: grid; gap: 12px; justify-items: start; padding: 18px; border-radius: 10px; background: #fff; }
+  .agenda-lado { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+  .agenda-lado .resumo { flex: 1; }
+  .resumo { display: flex; flex-direction: column; gap: 20px; padding: 32px; border-radius: 14px; background: var(--p-surface); color: var(--p-ink); }
+  .resumo h3 { margin: 0; font: var(--display-weight) var(--t-h3)/1.2 var(--font-display); letter-spacing: -0.02em; }
+  .resumo-cabeca { display: flex; align-items: center; gap: 14px; }
+  .resumo-icone { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--p-accent); color: #fff; }
+  .resumo-icone svg { width: 24px; height: 24px; }
+  .resumo dl { display: grid; margin: 0; }
+  .resumo dl div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line-strong); }
+  .resumo dt { display: flex; align-items: center; gap: 10px; color: var(--muted); }
+  .resumo dt svg { width: 20px; height: 20px; flex: none; color: var(--p-accent); }
+  .resumo dd { margin: 0; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .campo { display: grid; gap: 6px; font-weight: 500; }
+  .campo input { width: 100%; min-height: 52px; padding: 10px 14px; border: 0; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1.5px #8a8a88; color: var(--p-ink); font: 400 16px/1.3 var(--font-text); }
+  .campo input:focus-visible { outline: 3px solid var(--p-accent); outline-offset: 1px; }
+  .sinal { display: grid; gap: 4px; padding: 14px 16px; border-radius: 10px; background: #fff; }
+  .erro { color: #a01a22; font-weight: 500; } .erro:empty { display: none; }
+  .resumo .btn { width: 100%; }
+  .resumo-rodape { display: grid; gap: 10px; margin: auto 0 0; padding: 18px 0 0; border-top: 1px solid var(--line-strong); list-style: none; color: var(--muted); }
+  .resumo-rodape li { display: flex; align-items: flex-start; gap: 10px; }
+  .resumo-rodape svg { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--p-accent); }
+  .pix { display: grid; justify-items: center; gap: 12px; text-align: center; }
+  .pix svg { width: 168px; height: 168px; }
+  .teste { padding: 8px 12px; border-radius: 8px; background: #fff; color: var(--muted); font-size: 14px; }
+  .feito { display: grid; justify-items: center; gap: 14px; text-align: center; }
+  .feito-disco { width: 96px; height: 96px; border-radius: 50%; background: radial-gradient(circle, #fff 0 5%, var(--p-accent) 5.5% 32%, transparent 32.5%), repeating-radial-gradient(circle, #0b0b0b 0 2px, #222 2px 4px); }
+  .feito ul { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; color: var(--muted); }
+  .feito .btn { width: 100%; }
+  .btn-zap { background: #12803b; color: #fff; }
+  .btn svg:not(.m-arrow) { width: 20px; height: 20px; flex: none; }
+  @media (max-width: 960px) { .agenda-grade { grid-template-columns: minmax(0, 1fr); } }
+  .compara-rotulo { display: block; margin-bottom: 8px; }
+  @media (max-width: 359px) { header.nav .nav__bar > .nav__actions { display: none; } header.nav:not(.is-open) .nav__bar > .nav__toggle { margin-left: auto; } .nav__bar { gap: 8px; } .nav__logo { min-width: 0; font-size: 15px; } }
+  @media (max-width: 520px) { .dias, .horas { grid-template-columns: repeat(4, minmax(0, 1fr)); } .nav__logo img { width: 32px; height: 32px; } .resumo { padding: 22px; } .resumo dl div { grid-template-columns: 8rem minmax(0, 1fr); } }
+
+  /* o icone do WhatsApp no canto, em qualquer tela (regra da casa: sem barra no pe do celular) */
+  .flutuante { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 40; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: #12803b; color: #fff; box-shadow: 0 8px 22px -8px rgba(20, 20, 20, .45); transition: transform .16s ease; }
+  .flutuante:active { transform: scale(.95); }
+  .flutuante svg { width: 28px; height: 28px; }
+</style>
+</head>
+<body>
+<!-- type: place (barbearia: as pessoas vem ate a casa)
+     deal: hero place (impresso), nav nav-cards, close nenhum (a agenda faz o papel do fechamento), footer footer-columns,
+           rhythm surface-pairs, buttons solid, mark: o selo da propria casa, oferta pair, a casa trio (bleed sorteado
+           ampliaria fotos de 716px para 1440px), type moment address, rooms nao usado
+     palette: cores da propria casa (start.mjs brand): chao claro da parede de tabua, tinta preta do selo, o vermelho do letreiro
+     moments: word-highlight na frase da casa (#casa) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-agenda" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M8.5 14.5h2M13.5 14.5h2"/></g></symbol>
+  <symbol id="i-tesoura" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="17.5" r="2.8"/><circle cx="17.5" cy="17.5" r="2.8"/><path d="M8.6 15.6 18 3.5M15.4 15.6 6 3.5"/></g></symbol>
+  <symbol id="i-pessoa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c1-3.8 4-5.8 7.5-5.8s6.5 2 7.5 5.8"/></g></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+  <symbol id="i-sino" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></g></symbol>
+  <symbol id="i-local" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+  <symbol id="i-troca" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13l-3.5-3.5M20 15H7l3.5 3.5"/></g></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Pular para o conteúdo</a>
+    <a class="nav__logo" href="#top"><img src="img/selo-preto.webp" width="400" height="400" alt="">Felipe Pioli</a>
+    <nav class="nav__links" aria-label="Principal">
+      <div class="nav__item"><a class="nav__link" href="#servicos">Serviços</a></div>
+      <div class="nav__item"><a class="nav__link" href="#protese">Prótese capilar</a></div>
+      <div class="nav__item"><a class="nav__link" href="#casa">A barbearia</a></div>
+      <div class="nav__item"><a class="nav__link" href="#visit">Endereço</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="#agendar">Agendar horário</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="#c8202a" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--place" data-enter aria-labelledby="hero-h">
+    <img class="hero__bg" data-phone-fill src="img/maquinas.webp" width="1200" height="673" alt="A parede das máquinas de corte da barbearia, em preto e branco" style="--ly-pos: 60% 50%" fetchpriority="high" data-source="client" data-subject="as máquinas da barbearia">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__text">
+        <h1 id="hero-h">Barbearia e prótese capilar em Cravinhos</h1>
+        <p class="hero__lead">Corte, barba e prótese na Av. Fagundes, de terça a sábado. Nota 5,0 em 134 avaliações no Google.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="#agendar">Agendar horário<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="visit" data-place="visit" aria-labelledby="visit-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="visit-h">Endereço e horário</h2>
+        <p class="type-moment"><a href="https://www.google.com/maps/search/?api=1&amp;query=Barbearia+Felipe+Pioli+Av.+Fagundes+1078+Cravinhos" target="_blank" rel="noopener">Av. Fagundes, 1078</a></p>
+      </div>
+      <div class="grid grid--top">
+        <div class="visit visit--card span-6">
+          <div class="visit__cols">
+            <div class="visit__col stack-4">
+              <address class="visit__address">Jardim Anhanguera, Cravinhos</address>
+              <a class="link" href="https://wa.me/5516996102587" target="_blank" rel="noopener">WhatsApp (16) 99610-2587</a>
+              <a class="btn btn--secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Barbearia+Felipe+Pioli+Av.+Fagundes+1078+Cravinhos" target="_blank" rel="noopener">Ver no mapa</a>
+            </div>
+            <div class="visit__col">
+              <dl class="hours" data-tz="America/Sao_Paulo" data-assumed><dt data-days="tue-fri">Terça a sexta</dt><dd>9h às 12h, 14h às 19h</dd><dt data-days="sat">Sábado</dt><dd>8h às 14h30</dd><dt data-days="sun,mon">Domingo e segunda</dt><dd>Fechado</dd></dl>
+            </div>
+          </div>
+        </div>
+        <figure class="pl-photo span-6 start-7" style="--pl-r: 1.333"><img src="img/fachada.webp" width="716" height="895" alt="A fachada cinza com o selo redondo da Barbearia Felipe Pioli" loading="lazy" style="object-position: 50% 40%" data-source="client" data-subject="a fachada"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section statement" id="casa" data-moment="word-highlight" aria-label="A casa">
+    <div class="wrap">
+      <p class="t-label">Desde 2013</p>
+      <p class="mo-wh__text">Há 13 anos cortamos cabelo e barba em Cravinhos, numa barbearia de rock: guitarras na parede, discos de vinil e o mural de Abbey Road. Aqui também aplicamos <strong>prótese capilar</strong>, com o resultado pronto no mesmo dia.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="servicos" aria-labelledby="servicos-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="servicos-h">Serviços com hora marcada</h2>
+        <p>A prótese capilar é uma micropele com fios naturais, sem cirurgia: dura de 8 meses a 1 ano. <a class="link" href="#agendar">Agendar</a></p>
+      </div>
+      <div class="grid grid--top">
+        <div class="span-3">
+          <p class="t-label">Barbearia</p>
+          <ul class="rows">
+            <li><span class="rows__name">Corte masculino<small>Tesoura ou máquina</small></span><span class="rows__value" data-assumed>30 min</span></li>
+            <li><span class="rows__name">Barba<small>Acabada na navalha</small></span><span class="rows__value" data-assumed>30 min</span></li>
+            <li><span class="rows__name">Pigmentação<small>Preenche as falhas</small></span><span class="rows__value" data-assumed>30 min</span></li>
+            <li><span class="rows__name">Sobrancelha<small>Sem exagero</small></span><span class="rows__value" data-assumed>15 min</span></li>
+          </ul>
+        </div>
+        <div class="span-3">
+          <p class="t-label">Prótese capilar</p>
+          <ul class="rows">
+            <li><span class="rows__name">Avaliação<small>O orçamento sai aqui</small></span><span class="rows__value" data-assumed>30 min</span></li>
+            <li><span class="rows__name">Aplicação<small>Pronta no mesmo dia</small></span><span class="rows__value" data-assumed>1h30</span></li>
+            <li><span class="rows__name">Manutenção<small>A cada 20 dias</small></span><span class="rows__value" data-assumed>1h</span></li>
+            <li><span class="rows__name">Coloração<small>No tom do cabelo</small></span><span class="rows__value" data-assumed>30 min</span></li>
+          </ul>
+        </div>
+        <div class="span-6 start-7" id="protese">
+          <label class="t-small muted compara-rotulo" for="compara-range">Arraste a linha para ver o antes e o depois</label>
+          <div class="compara" id="compara" style="--pos:50%">
+            <img class="antes" id="foto-antes" src="img/protese-1-antes.webp" width="600" height="400" alt="Antes: cliente com o cabelo ralo na frente e no topo da cabeça" loading="lazy" data-source="client" data-subject="antes da prótese">
+            <img class="depois" id="foto-depois" src="img/protese-1-depois.webp" width="600" height="400" alt="Depois: o mesmo cliente com a prótese capilar aplicada e penteada" loading="lazy" data-source="client" data-subject="depois da prótese">
+            <span class="rotulo rotulo-antes" aria-hidden="true">Antes</span>
+            <span class="rotulo rotulo-depois" aria-hidden="true">Depois</span>
+            <span class="compara-linha" aria-hidden="true"><span class="compara-alca"><svg viewBox="0 0 24 24"><path d="M9 6 3 12l6 6M15 6l6 6-6 6"/></svg></span></span>
+            <input type="range" id="compara-range" min="0" max="100" value="50">
+          </div>
+          <div class="clientes" role="group" aria-label="Escolha o cliente">
+            <button class="cliente" type="button" data-par="1" aria-pressed="true"><img src="img/protese-1-depois.webp" width="600" height="400" alt="" loading="lazy">Cliente 1</button>
+            <button class="cliente" type="button" data-par="2" aria-pressed="false"><img src="img/protese-2-depois.webp" width="600" height="400" alt="" loading="lazy">Cliente 2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section--alt" id="agendar" style="--h: 2; --hm: 3" aria-labelledby="agendar-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="agendar-h">Agende seu horário</h2>
+        <p>Escolha o serviço, o profissional, o dia e o horário. Você recebe um lembrete no WhatsApp um dia antes.</p>
+      </div>
+      <div class="agenda-grade">
+        <form id="agenda-form" novalidate>
+          <fieldset class="passo">
+            <legend>Serviços <small>escolha um ou mais</small></legend>
+            <div class="opcoes" id="op-servicos"></div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend>Profissional</legend>
+            <div class="opcoes" id="op-profissional">
+              <label class="opcao"><input type="radio" name="profissional" value="Felipe Pioli" checked><strong>Felipe Pioli</strong><small>Fundador da barbearia</small></label>
+              <label class="opcao"><input type="radio" name="profissional" value="Primeiro profissional livre"><strong>Qualquer profissional</strong><small>O primeiro horário livre</small></label>
+            </div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend>Dia</legend>
+            <div class="dias" id="op-dias"></div>
+          </fieldset>
+          <fieldset class="passo">
+            <legend id="legenda-horas">Horário</legend>
+            <div id="op-horas"></div>
+          </fieldset>
+        </form>
+        <div class="agenda-lado"><figure class="pl-photo" style="--pl-r: 1.6"><img src="img/cadeira.webp" width="716" height="895" alt="A cadeira de barbeiro de couro marrom diante do mural de Abbey Road" loading="lazy" style="object-position: 50% 60%" data-source="client" data-subject="a cadeira"></figure><aside class="resumo" id="resumo" aria-live="polite"></aside></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Seu horário na Av. Fagundes</h2>
+        <p>De terça a sábado, com lembrete no WhatsApp um dia antes.</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="#agendar">Agendar horário<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><img src="img/selo-preto.webp" width="400" height="400" alt="">Felipe Pioli</a>
+          <p class="footer__lede">Barbearia em Cravinhos desde 2013: corte, barba e prótese capilar.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Barbearia</h3><ul><li><a href="#servicos">Serviços</a></li><li><a href="#casa">A casa</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Prótese</h3><ul><li><a href="#protese">Antes e depois</a></li><li><a href="#agendar">Avaliação</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Visita</h3><ul><li><a href="#visit">Endereço e horário</a></li><li><a href="https://wa.me/5516996102587" target="_blank" rel="noopener">WhatsApp</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Redes</h3><ul><li><a href="https://www.instagram.com/barbearia_felipepioli" target="_blank" rel="noopener">Instagram</a></li><li><a href="#agendar">Agendar</a></li></ul></div>
+      </div>
+      <div class="footer__legal"><span>&copy; 2026 Barbearia Felipe Pioli</span></div>
+    </div>
+  </div>
+</footer>
+
+<a class="flutuante" href="https://wa.me/5516996102587?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20barbearia%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg aria-hidden="true"><use href="#i-zap"/></svg></a>
+
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const WHATSAPP = "5516996102587";
+const zap = (txt) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* ---------- antes e depois ---------- */
+const compara = $("#compara");
+$("#compara-range").addEventListener("input", (e) => compara.style.setProperty("--pos", e.target.value + "%"));
+const ALTS = [
+  ["Antes: cliente com o cabelo ralo na frente e no topo da cabeça", "Depois: o mesmo cliente com a prótese capilar aplicada e penteada"],
+  ["Antes: cliente com calvície no alto da cabeça", "Depois: o mesmo cliente com a prótese capilar e o corte feito"],
+];
+document.querySelectorAll(".cliente").forEach((b) => b.addEventListener("click", () => {
+  const k = +b.dataset.par;
+  document.querySelectorAll(".cliente").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  $("#foto-antes").src = `img/protese-${k}-antes.webp`; $("#foto-antes").alt = ALTS[k - 1][0];
+  $("#foto-depois").src = `img/protese-${k}-depois.webp`; $("#foto-depois").alt = ALTS[k - 1][1];
+  $("#compara-range").value = 50; compara.style.setProperty("--pos", "50%");
+}));
+
+/* ---------- agenda ----------
+   Horario de funcionamento da ficha do Google. A ocupacao dos horarios e simulada para mostrar a agenda;
+   na versao real ela vem da agenda da barbearia. SINAL: valor de exemplo, so para a protese. */
+const SERVICOS = [
+  { id: "corte", nome: "Corte masculino", desc: "Clássico ou moderno", vagas: 1 },
+  { id: "barba", nome: "Barba", desc: "Desenho e acabamento", vagas: 1 },
+  { id: "pigmentacao", nome: "Pigmentação de barba", desc: "Preenche as falhas", vagas: 1 },
+  { id: "sobrancelha", nome: "Sobrancelha", desc: "Acabamento", vagas: 1 },
+  { id: "avaliacao", nome: "Avaliação de prótese capilar", desc: "Sinal no Pix para garantir o horário", vagas: 1, sinal: 30 },
+  { id: "manutencao", nome: "Manutenção e coloração da prótese", desc: "Sinal no Pix para garantir o horário", vagas: 3, sinal: 30 },
+];
+const EXPEDIENTE = { 2: [[9, 12], [14, 19]], 3: [[9, 12], [14, 19]], 4: [[9, 12], [14, 19]], 5: [[9, 12], [14, 19]], 6: [[8, 14.5]] };
+const SEMANA = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
+const SEM_CURTA = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+const MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+const iso = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const deIso = (s) => { const [a, m, d] = s.split("-").map(Number); return new Date(a, m - 1, d); };
+const hhmm = (h) => `${Math.floor(h)}h${h % 1 ? "30" : ""}`;
+const hora2 = (h) => `${String(Math.floor(h)).padStart(2, "0")}:${h % 1 ? "30" : "00"}`;
+const reais = (n) => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const hash = (s) => { let x = 2166136261; for (const c of s) { x ^= c.charCodeAt(0); x = Math.imul(x, 16777619); } return (x >>> 0) % 100; };
+
+const estado = { servicos: ["corte"], prof: "Felipe Pioli", dia: null, hora: null, nome: "", fone: "", fase: "escolha", reservas: [] };
+/* os servicos escolhidos viram um atendimento so: duracao somada e um sinal se tiver protese */
+const servico = () => {
+  const sel = SERVICOS.filter((s) => estado.servicos.includes(s.id));
+  const lista = sel.map((s) => s.nome);
+  const nomes = lista.map((n, i) => (i ? n.charAt(0).toLowerCase() + n.slice(1) : n));
+  return {
+    lista,
+    nome: nomes.join(" + "),
+    vagas: sel.reduce((n, s) => n + s.vagas, 0),
+    sinal: Math.max(0, ...sel.map((s) => s.sinal || 0)),
+  };
+};
+
+function diasAbertos() {
+  const lista = [], d = new Date(); d.setHours(0, 0, 0, 0);
+  while (lista.length < 12) { if (EXPEDIENTE[d.getDay()]) lista.push(iso(d)); d.setDate(d.getDate() + 1); }
+  return lista;
+}
+const primeiroSabado = () => diasAbertos().find((s) => deIso(s).getDay() === 6);
+function ocupado(dia, h) {
+  if (estado.reservas.some((r) => r.dia === dia && r.prof === estado.prof && h >= r.ini && h < r.fim)) return true;
+  const felipe = estado.prof === "Felipe Pioli";
+  if (felipe && dia === primeiroSabado()) return true;   /* um sabado lotado, para mostrar a lista de espera */
+  const sab = deIso(dia).getDay() === 6;
+  return hash(dia + Math.floor(h) + estado.prof) < (sab ? 40 : 22) + (felipe ? 8 : 0);   /* reservas de hora em hora */
+}
+function horarios(dia, n = servico().vagas) {
+  const agora = new Date(), hoje = iso(agora) === dia, out = [];
+  for (const [a, b] of EXPEDIENTE[deIso(dia).getDay()]) {
+    for (let h = a; h + n * .5 <= b; h += .5) {
+      if (hoje && h <= agora.getHours() + agora.getMinutes() / 60 + .5) continue;
+      let livre = true;
+      for (let k = 0; k < n; k++) if (ocupado(dia, h + k * .5)) livre = false;
+      out.push({ h, livre, tarde: h >= 12 });
+    }
+  }
+  return out;
+}
+
+function desenharServicos() {
+  $("#op-servicos").innerHTML = SERVICOS.map((s) => `<label class="opcao opcao-marca"><input type="checkbox" name="servico" value="${s.id}"${estado.servicos.includes(s.id) ? " checked" : ""}><strong>${esc(s.nome)}</strong><small>${esc(s.desc)}</small></label>`).join("");
+}
+function desenharDias() {
+  const dias = diasAbertos();
+  if (!dias.includes(estado.dia)) estado.dia = dias.find((d) => horarios(d).some((x) => x.livre)) || dias[0];
+  $("#op-dias").innerHTML = dias.map((s) => { const d = deIso(s); return `<div class="dia"><label class="opcao"><input type="radio" name="dia" value="${s}"${s === estado.dia ? " checked" : ""}><small>${SEM_CURTA[d.getDay()]}</small><strong>${d.getDate()}</strong><small>${MESES[d.getMonth()].slice(0, 3)}</small><span class="so-leitor">${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}</span></label></div>`; }).join("");
+}
+function desenharHoras() {
+  const lista = horarios(estado.dia);
+  if (estado.fase !== "feito" && !lista.some((x) => x.livre && x.h === estado.hora)) estado.hora = null;
+  const d = deIso(estado.dia);
+  $("#legenda-horas").textContent = `Horário de ${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`;
+  if (!lista.some((x) => x.livre) && servico().vagas > 1 && horarios(estado.dia, 1).some((x) => x.livre)) {
+    $("#op-horas").innerHTML = `<div class="lotado"><p><strong>Neste dia não há um horário seguido para todos os serviços escolhidos.</strong> Escolha outro dia, tire um serviço ou fale conosco pelo WhatsApp.</p></div>`;
+    return;
+  }
+  if (!lista.some((x) => x.livre)) {
+    $("#op-horas").innerHTML = `<div class="lotado"><p><strong>Este dia está lotado${estado.prof === "Felipe Pioli" ? " com o Felipe" : ""}.</strong> Entre na lista de espera: avisamos pelo WhatsApp se um horário vagar. Você também pode escolher outro dia${estado.prof === "Felipe Pioli" ? " ou qualquer profissional" : ""}.</p><a class="btn btn--primary btn-zap" target="_blank" rel="noopener" href="${zap(`Olá! Gostaria de entrar na lista de espera para ${servico().nome.toLowerCase()} no dia ${d.getDate()}/${d.getMonth() + 1}, com ${estado.prof === "Felipe Pioli" ? "o Felipe" : "qualquer profissional"}.`)}"><svg aria-hidden="true"><use href="#i-zap"/></svg>Entrar na lista de espera</a></div>`;
+    return;
+  }
+  let html = "", periodo = null;
+  for (const x of lista) {
+    if (x.tarde !== periodo) { periodo = x.tarde; html += `<p class="periodo">${x.tarde ? "Tarde" : "Manhã"}</p>`; }
+    html += `<div class="hora"><label class="opcao"><input type="radio" name="hora" value="${x.h}"${x.livre ? "" : " disabled"}${x.h === estado.hora ? " checked" : ""}><span>${hora2(x.h)}</span>${x.livre ? "" : '<span class="so-leitor"> ocupado</span>'}</label></div>`;
+  }
+  $("#op-horas").innerHTML = `<div class="horas">${html}</div>`;
+}
+const quando = () => { const d = deIso(estado.dia); return `${SEMANA[d.getDay()]}, ${d.getDate()} de ${MESES[d.getMonth()]}`; };
+
+function qr() {
+  const t = 25, c = [];
+  const canto = (x, y) => `<path d="M${x} ${y}h7v7h-7Z M${x + 1} ${y + 1}v5h5v-5Z" fill-rule="evenodd"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3"/>`;
+  for (let y = 0; y < t; y++) for (let x = 0; x < t; x++) {
+    if ((x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16)) continue;
+    if (hash(`pioli${x},${y}`) < 48) c.push(`<rect x="${x}" y="${y}" width="1" height="1"/>`);
+  }
+  return `<svg viewBox="0 0 ${t} ${t}" shape-rendering="crispEdges" fill="#161616" role="img" aria-label="QR Code do Pix (teste)">${canto(0, 0)}${canto(18, 0)}${canto(0, 18)}${c.join("")}</svg>`;
+}
+
+function desenharResumo() {
+  const s = servico(), r = $("#resumo");
+  if (estado.fase === "pix") {
+    r.innerHTML = `<h3>Sinal no Pix</h3><div class="pix">${qr()}<p>Pix de <strong>${reais(s.sinal)}</strong> para a Barbearia Felipe Pioli. O valor é descontado no dia do atendimento.</p><p class="teste">Ambiente de teste: nenhum valor é cobrado.</p></div><button class="btn btn--primary" type="button" id="pagar">Simular o pagamento</button><button class="btn btn--secondary" type="button" id="voltar">Voltar</button>`;
+    return;
+  }
+  if (estado.fase === "feito") {
+    const d = deIso(estado.dia), ini = hora2(estado.hora).replace(":", ""), fimH = estado.hora + s.vagas * .5, fim = hora2(fimH).replace(":", "");
+    const dt = `${iso(d).replace(/-/g, "")}T${ini}00/${iso(d).replace(/-/g, "")}T${fim}00`;
+    const agenda = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`${s.nome} na Barbearia Felipe Pioli`)}&dates=${dt}&ctz=America/Sao_Paulo&details=${encodeURIComponent("Av. Fagundes, 1078, Jardim Anhanguera, Cravinhos. Para desmarcar, avise com 24 horas de antecedência pelo WhatsApp (16) 99610-2587.")}`;
+    const msg = `Olá! Reservei pelo site: ${s.nome.toLowerCase()} na ${quando()}, às ${hhmm(estado.hora)}, com ${estado.prof === "Felipe Pioli" ? "o Felipe" : "qualquer profissional"}. Nome: ${estado.nome}.${s.sinal ? ` Sinal de ${reais(s.sinal)} pago no Pix.` : ""}`;
+    r.innerHTML = `<div class="feito"><span class="feito-disco" aria-hidden="true"></span><h3>Horário reservado</h3><p><strong>${esc(s.nome)}</strong><br>${quando()}, às ${hhmm(estado.hora)}<br>${estado.prof === "Felipe Pioli" ? "Com o Felipe Pioli" : "Com o primeiro profissional livre"}</p><ul><li>Enviamos um lembrete no seu WhatsApp um dia antes.</li>${s.sinal ? `<li>Sinal de ${reais(s.sinal)} pago, descontado no dia.</li>` : ""}<li>Para desmarcar ou trocar, avise com 24 horas de antecedência.</li></ul><a class="btn btn--primary btn-zap" href="${zap(msg)}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-zap"/></svg>Enviar a reserva no WhatsApp</a><a class="btn btn--secondary" href="${agenda}" target="_blank" rel="noopener">Adicionar ao Google Agenda</a><button class="btn btn--secondary" type="button" id="outro">Marcar outro horário</button></div>`;
+    return;
+  }
+  const ic = (id) => `<svg aria-hidden="true"><use href="#i-${id}"/></svg>`;
+  r.innerHTML = `<div class="resumo-cabeca"><span class="resumo-icone">${ic("tesoura")}</span><h3>Seu horário</h3></div>
+    <dl>
+      <div><dt>${ic("tesoura")}${s.lista.length > 1 ? "Serviços" : "Serviço"}</dt><dd>${s.lista.map(esc).join("<br>")}</dd></div>
+      <div><dt>${ic("pessoa")}Profissional</dt><dd>${esc(estado.prof === "Felipe Pioli" ? "Felipe Pioli" : "Qualquer profissional")}</dd></div>
+      <div><dt>${ic("agenda")}Dia</dt><dd>${quando()}</dd></div>
+      <div><dt>${ic("relogio")}Horário</dt><dd>${estado.hora == null ? "Escolha um horário" : hhmm(estado.hora)}</dd></div>
+    </dl>
+    <label class="campo">Seu nome<input type="text" id="nome" autocomplete="name" value="${esc(estado.nome)}"></label>
+    <label class="campo">Seu WhatsApp, para o lembrete<input type="tel" id="fone" inputmode="tel" autocomplete="tel" placeholder="(16) 99999-9999" value="${esc(estado.fone)}"></label>
+    ${s.sinal ? `<p class="sinal"><strong>Sinal de ${reais(s.sinal)} no Pix</strong>Garante o horário da prótese e é descontado no dia. Valor de exemplo.</p>` : ""}
+    <p class="erro" id="erro" role="alert"></p>
+    <button class="btn btn--primary" type="button" id="reservar">${s.sinal ? "Pagar o sinal e reservar" : "Reservar horário"}</button>
+    <ul class="resumo-rodape">
+      <li>${ic("sino")}Lembrete no seu WhatsApp um dia antes.</li>
+      <li>${ic("local")}Av. Fagundes, 1078, Jardim Anhanguera.</li>
+      <li>${ic("troca")}Para desmarcar ou trocar, avise com 24 horas de antecedência.</li>
+    </ul>`;
+}
+function tudo() { desenharServicos(); desenharDias(); desenharHoras(); desenharResumo(); }
+
+$("#agenda-form").addEventListener("change", (e) => {
+  const t = e.target; estado.fase = "escolha";
+  if (t.name === "servico") {
+    const marcados = [...document.querySelectorAll('input[name="servico"]:checked')].map((i) => i.value);
+    if (!marcados.length) { t.checked = true; return; }   /* sempre fica pelo menos um */
+    estado.servicos = SERVICOS.map((x) => x.id).filter((id) => marcados.includes(id)); desenharHoras();
+  }
+  else if (t.name === "profissional") { estado.prof = t.value; desenharDias(); desenharHoras(); }
+  else if (t.name === "dia") { estado.dia = t.value; desenharHoras(); }
+  else if (t.name === "hora") estado.hora = +t.value;
+  else return;
+  estado.fase = "escolha"; desenharResumo();
+});
+$("#resumo").addEventListener("input", (e) => { if (e.target.id === "nome") estado.nome = e.target.value; if (e.target.id === "fone") estado.fone = e.target.value; });
+$("#resumo").addEventListener("click", (e) => {
+  const id = e.target.closest("button")?.id;
+  if (id === "reservar") {
+    const erro = estado.hora == null ? "Escolha um horário." : estado.nome.trim().length < 2 ? "Informe o seu nome." : estado.fone.replace(/\D/g, "").length < 10 ? "Informe o seu WhatsApp com DDD." : "";
+    if (erro) { $("#erro").textContent = erro; return; }
+    if (servico().sinal) { estado.fase = "pix"; desenharResumo(); $("#pagar").focus({ preventScroll: true }); }
+    else confirmar();
+  } else if (id === "pagar") confirmar();
+  else if (id === "voltar") { estado.fase = "escolha"; desenharResumo(); }
+  else if (id === "outro") { estado.fase = "escolha"; estado.hora = null; desenharHoras(); desenharResumo(); }
+});
+function confirmar() {
+  estado.reservas.push({ dia: estado.dia, prof: estado.prof, ini: estado.hora, fim: estado.hora + servico().vagas * .5 });
+  estado.fase = "feito"; desenharHoras(); desenharResumo();
+  if (matchMedia("(max-width: 960px)").matches) $("#resumo").scrollIntoView({ block: "start" });
+}
+/* os botoes "Agendar ..." ja escolhem o servico */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-servico]");
+  if (!a) return;
+  estado.servicos = [a.dataset.servico]; estado.fase = "escolha"; desenharServicos(); desenharHoras(); desenharResumo();
+});
+tudo();
+
+</script>
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+</body>
+</html>
