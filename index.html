@@ -307,6 +307,29 @@
   .galeria figcaption span { color: var(--tinta-2); font-size: .92rem; }
   @media (max-width: 900px) { .salao-cabeca { grid-template-columns: minmax(0, 1fr); } .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (prefers-reduced-motion: reduce) { .galeria img { transition: none; } }
+  /* zoom da galeria: clicou na foto, ela abre grande por cima da pagina */
+  .galeria .moldura { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
+  .zoom { width: min(100vw - 32px, 1100px); max-width: none; max-height: none; margin: auto; padding: 0; border: 0; background: transparent; color: var(--branco); overflow: visible; }
+  .zoom::backdrop { background: rgba(10, 10, 10, .92); }
+  .zoom[open] { display: grid; justify-items: center; gap: .9rem; }
+  .zoom img { width: auto; max-width: 100%; max-height: calc(100svh - 140px); border-radius: var(--raio); object-fit: contain; cursor: zoom-out; }
+  .zoom p { display: grid; gap: .1rem; text-align: center; line-height: 1.35; }
+  .zoom p strong { font: 400 1.2rem/1.2 var(--fonte-titulo); }
+  .zoom p span { color: var(--cinza-claro); font-size: .95rem; }
+  .zoom-btn { position: fixed; z-index: 2; display: grid; place-items: center; width: 52px; height: 52px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .12); color: var(--branco); cursor: pointer; transition: background-color var(--dur-ui) ease, transform .16s var(--ease-out); }
+  .zoom-btn:active { transform: scale(.94); }
+  @media (hover: hover) and (pointer: fine) { .zoom-btn:hover { background: rgba(255, 255, 255, .24); } }
+  .zoom-btn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .zoom-fechar { top: 16px; right: 16px; }
+  .zoom-ant { left: 16px; top: 50%; margin-top: -26px; }
+  .zoom-prox { right: 16px; top: 50%; margin-top: -26px; }
+  @media (max-width: 700px) { .zoom-ant, .zoom-prox { top: auto; bottom: 16px; margin-top: 0; } .zoom img { max-height: calc(100svh - 200px); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .zoom[open] img { animation: zoom-entra .26s var(--ease-out) both; }
+    .zoom[open]::backdrop { animation: zoom-fundo .2s ease both; }
+  }
+  @keyframes zoom-entra { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+  @keyframes zoom-fundo { from { opacity: 0; } to { opacity: 1; } }
 
   /* ---------- avaliacoes do Google ---------- */
   .google { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 2rem clamp(2rem, 5vw, 4.5rem); }
@@ -513,11 +536,18 @@
       <p>Guitarras, discos e quadros de rock na recepção, o mural dos Beatles atrás da cadeira e uma parede verde de plantas. Aqui o cuidado vai além do corte: atendimento com hora marcada e boa conversa.</p>
     </div>
     <ul class="envoltorio galeria">
-      <li><figure><div class="moldura"><img src="img/espera.webp" width="716" height="895" alt="A recepção, com poltronas pretas e a parede cheia de guitarras, discos e quadros de bandas de rock" loading="lazy"></div><figcaption><strong>A recepção</strong><span>Guitarras, discos e quadros de rock</span></figcaption></figure></li>
-      <li><figure><div class="moldura"><img src="img/mural.webp" width="716" height="895" alt="Cadeira de barbeiro diante do mural em preto e branco dos Beatles na faixa de pedestres" loading="lazy"></div><figcaption><strong>O salão</strong><span>O mural dos Beatles atrás da cadeira</span></figcaption></figure></li>
-      <li><figure><div class="moldura"><img src="img/sala-protese.webp" width="716" height="895" alt="Ambiente com parede verde de plantas, sofá preto e cadeira de barbeiro" loading="lazy"></div><figcaption><strong>A parede verde</strong><span>Mais uma cadeira, ao lado das plantas</span></figcaption></figure></li>
-      <li><figure><div class="moldura"><img src="img/fachada.webp" width="716" height="895" alt="A fachada preta da barbearia com a placa redonda Barbearia Felipe Pioli" loading="lazy"></div><figcaption><strong>A fachada</strong><span>Av. Fagundes, 1078, Jardim Anhanguera</span></figcaption></figure></li>
+      <li><figure><button class="moldura" type="button" data-zoom aria-label="Ampliar a foto: a recepção"><img src="img/espera.webp" width="716" height="895" alt="A recepção, com poltronas pretas e a parede cheia de guitarras, discos e quadros de bandas de rock" loading="lazy"></button><figcaption><strong>A recepção</strong><span>Guitarras, discos e quadros de rock</span></figcaption></figure></li>
+      <li><figure><button class="moldura" type="button" data-zoom aria-label="Ampliar a foto: o salão"><img src="img/mural.webp" width="716" height="895" alt="Cadeira de barbeiro diante do mural em preto e branco dos Beatles na faixa de pedestres" loading="lazy"></button><figcaption><strong>O salão</strong><span>O mural dos Beatles atrás da cadeira</span></figcaption></figure></li>
+      <li><figure><button class="moldura" type="button" data-zoom aria-label="Ampliar a foto: a parede verde"><img src="img/sala-protese.webp" width="716" height="895" alt="Ambiente com parede verde de plantas, sofá preto e cadeira de barbeiro" loading="lazy"></button><figcaption><strong>A parede verde</strong><span>Mais uma cadeira, ao lado das plantas</span></figcaption></figure></li>
+      <li><figure><button class="moldura" type="button" data-zoom aria-label="Ampliar a foto: a fachada"><img src="img/fachada.webp" width="716" height="895" alt="A fachada preta da barbearia com a placa redonda Barbearia Felipe Pioli" loading="lazy"></button><figcaption><strong>A fachada</strong><span>Av. Fagundes, 1078, Jardim Anhanguera</span></figcaption></figure></li>
     </ul>
+    <dialog class="zoom" id="zoom" aria-label="Foto ampliada">
+      <img id="zoom-img" src="" alt="">
+      <p id="zoom-legenda"></p>
+      <button class="zoom-btn zoom-fechar" type="button" id="zoom-fechar" aria-label="Fechar a foto"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <button class="zoom-btn zoom-ant" type="button" id="zoom-ant" aria-label="Foto anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="zoom-btn zoom-prox" type="button" id="zoom-prox" aria-label="Próxima foto"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </dialog>
   </section>
 
   <section class="secao secao-branca" id="avaliacoes" aria-labelledby="titulo-avaliacoes">
@@ -767,6 +797,29 @@ document.addEventListener("click", (e) => {
   estado.servicos = [a.dataset.servico]; estado.fase = "escolha"; desenharServicos(); desenharHoras(); desenharResumo();
 });
 tudo();
+
+/* ---------- zoom da galeria ---------- */
+(() => {
+  const dlg = $("#zoom"), fotos = [...document.querySelectorAll("[data-zoom]")];
+  let atual = 0, viaPonteiro = false;
+  const mostrar = (k) => {
+    atual = (k + fotos.length) % fotos.length;
+    const img = fotos[atual].querySelector("img"), cap = fotos[atual].closest("figure").querySelector("figcaption");
+    $("#zoom-img").src = img.src; $("#zoom-img").alt = img.alt;
+    $("#zoom-legenda").innerHTML = cap.innerHTML;
+  };
+  fotos.forEach((b, k) => b.addEventListener("click", (e) => { viaPonteiro = e.detail > 0; mostrar(k); dlg.showModal(); if (viaPonteiro) document.activeElement?.blur(); }));   /* aberto com o mouse ou o dedo: o X nao fica com a moldura de selecao */
+  $("#zoom-fechar").addEventListener("click", () => dlg.close());
+  $("#zoom-ant").addEventListener("click", () => mostrar(atual - 1));
+  $("#zoom-prox").addEventListener("click", () => mostrar(atual + 1));
+  $("#zoom-img").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });   /* clique fora da foto fecha */
+  document.addEventListener("keydown", (e) => { if (!dlg.open) return; if (e.key === "ArrowLeft") mostrar(atual - 1); if (e.key === "ArrowRight") mostrar(atual + 1); });
+  let x0 = null;   /* no celular, arrastar para o lado troca a foto */
+  dlg.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  dlg.addEventListener("touchend", (e) => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) mostrar(atual + (dx < 0 ? 1 : -1)); x0 = null; });
+  dlg.addEventListener("close", () => { if (viaPonteiro) setTimeout(() => document.activeElement?.blur(), 0); });   /* sem moldura de selecao depois de fechar */
+})();
 
 /* ---------- menu do celular ---------- */
 const topo = $(".topo"), menuBotao = $("#menu-botao");
